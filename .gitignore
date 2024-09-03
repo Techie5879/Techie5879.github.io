@@ -1,3 +1,6 @@
 /public/
 /resources/_gen/
 .hugo_build.lock
+.cursorignore
+hugo_stats.json
+go.sum

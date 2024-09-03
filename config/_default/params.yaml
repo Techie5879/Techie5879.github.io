@@ -11,7 +11,7 @@ appearance:
 # SEO
 marketing:
   seo:
-    site_type: Person
+    site_type: Personal
     local_business_type: ''
     org_name: ''
     description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
@@ -34,13 +34,14 @@ header:
     fixed_to_top: true
     show_search: true
     show_theme_chooser: true
+    highlight_active_link: true
     logo:
-      text: "Your Name"
+      text: ""
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Aritra. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
