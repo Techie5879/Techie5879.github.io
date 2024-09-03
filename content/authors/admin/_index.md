@@ -57,7 +57,7 @@ education:
     summary: |
       **GPA: 9.86/10 (Upto 6th Semester)**
 
-      **Key Highlights: Achieved a Perfect 10/10 GPA in 2 semesters**
+      **Key Highlight: Achieved a Perfect 10/10 GPA in 2 semesters**
 
       Courses include:
       - Machine Learning
@@ -154,11 +154,11 @@ skills:
 
 languages:
   - name: English
-    # percent: 100
+    percent: 100
   - name: Bengali
-    # percent: 100
+    percent: 100
   - name: Hindi
-    # percent: 75
+    percent: 75
 
 # Awards.
 #   Add/remove as many awards below as you like.
