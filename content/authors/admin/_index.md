@@ -36,7 +36,7 @@ profiles:
   - icon: brands/x
     url: https://twitter.com/aritraban7
   - icon: brands/github
-    url: https://github.com/Techie5897
+    url: https://github.com/Techie5879
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/aritraban/
   - icon: academicons/google-scholar
