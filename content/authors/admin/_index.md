@@ -144,8 +144,8 @@ skills:
       - name: NumPy
         description: ''
         percent: 90
-        icon: Pandas
-      - name: SQL
+        icon: code-bracket
+      - name: Pandas
         description: ''
         percent: 40
         icon: code-bracket
