@@ -35,11 +35,9 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+        I'm a Machine Learning Researcher and Engineer fascinated by mechanistic interpretability, computer vision and information retrieval! Trying to exploring the inner workings of language models to make AI more transparent, and understanding what kind of algorithms they are capable of learning. In the medical domain, I'm excited to develop computer vision techniques to analyze medical images and improve healthcare. Information retrieval is another passion - having worked on it for more than a year.
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-        
-        Please reach out to collaborate 😃
+        Always on the lookout for collaborators, so feel free to shoot me an email!
     design:
       columns: '1'
   - block: collection
