@@ -123,42 +123,53 @@ work:
 skills:
   - name: Technical Skills
     items:
-      - name: Python
+      - name: ML Frameworks
         description: ''
         percent: 80
         icon: code-bracket
       - name: Data Science
         description: ''
-        percent: 100
+        percent: 90
         icon: chart-bar
       - name: SQL
         description: ''
         percent: 40
         icon: circle-stack
+  - name: Top Libraries
+    items:
+      - name: PyTorch
+        description: ''
+        percent: 80
+        icon: code-bracket
+      - name: NumPy
+        description: ''
+        percent: 90
+        icon: Pandas
+      - name: SQL
+        description: ''
+        percent: 40
+        icon: code-bracket
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Cats
+      - name: Movies
         description: ''
         percent: 100
-        icon: cat
+        icon: film
       - name: Photography
         description: ''
         percent: 80
         icon: camera
-
+      - name: Travelling
+        description: ''
+        percent: 60
+        icon: person-simple-walk
+# Try to fix by finding and making partial template for section-resume-languages
 languages:
   - name: English
-    percent: 100
   - name: Bengali
-    percent: 100
   - name: Hindi
-    percent: 75
 
 # Awards.
 #   Add/remove as many awards below as you like.
