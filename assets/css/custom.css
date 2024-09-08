@@ -1,3 +1,17 @@
 .resume-biography p {
     text-align: justify;
 }
+
+  
+/* Center-align the section headers */
+.mb-5.text-xl.font-bold.text-gray-900.dark\:text-white {
+    text-align: center;
+}
+  
+ 
+/* Center individual skill items*/
+.skills-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
