@@ -1,5 +1,5 @@
 ---
-title: Blog 1
+title: Come back later
 summary: Coming Soon!
 date: 2023-10-24
 type: docs
