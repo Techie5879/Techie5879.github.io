@@ -43,7 +43,7 @@ sections:
   - block: collection
     id: papers
     content:
-      title: Featured Repositories
+      title: Featured Publications
       filters:
         folders:
           - publication
