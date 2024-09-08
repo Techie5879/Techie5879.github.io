@@ -1,11 +1,11 @@
 ---
-title: Learn Python
-summary: Easily learn Python in 10 minutes!
+title: Blog 1
+summary: Coming Soon!
 date: 2023-10-24
 type: docs
 math: false
 tags:
-  - Python
+  - Large Language Models
 image:
   caption: 'Embed rich media such as videos and LaTeX math'
 ---
