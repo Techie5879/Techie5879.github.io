@@ -166,10 +166,10 @@ skills:
         percent: 60
         icon: person-simple-walk
 # Try to fix by finding and making partial template for section-resume-languages
-languages:
-  - name: English
-  - name: Bengali
-  - name: Hindi
+# languages:
+#   - name: English
+#   - name: Bengali
+#   - name: Hindi
 
 # Awards.
 #   Add/remove as many awards below as you like.
