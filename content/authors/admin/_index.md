@@ -55,7 +55,7 @@ education:
     date_start: 2021-11-01
     date_end: 2025-06-01
     summary: |
-      **GPA: 9.86/10 (Upto 6th Semester)**
+      **GPA: 9.87/10 (Upto 7th Semester)**
 
       **Key Highlight: Achieved a Perfect 10/10 GPA in 2 semesters**
 
@@ -68,6 +68,34 @@ education:
       - Design and Analysis of Algorithms
       - Operating Systems
 work:
+  - position: Research Fellow
+    company_name: Supervised Program for Alignment Research
+    company_url: ''
+    company_logo: ''
+    date_start: 2025-02-01
+    date_end: ''
+    summary: |2-
+      Working on two Research Projects:
+      - Compositionality of Post-training interventions under Shashwat Goel (Max Planck and ELLIS Institute)
+      - Understanding and verifying the Autoregressive Hypothesis under Jacek Karwowski (Oxford University)
+  - position: Machine Learning Engineer
+    company_name: Brighterway (YC S24)
+    company_url: ''
+    company_logo: ''
+    date_start: 2024-12-01
+    date_end: ''
+    summary: |2-
+      **Joined as first MLE on Team**
+
+      Engineering pipelines for medical-legal record review, improving information extraction from patient-case records
+  - position: Research Intern
+    company_name: Artificial Intelligence Institute of South Carolina
+    company_url: ''
+    company_logo: ''
+    date_start: 2024-09-01
+    date_end: ''
+    summary: |2-
+      Working on Adversarial Attacks in Multimodal LLMs and text-to-image models under Prof. Amitava Das
   - position: Machine Learning Research Intern
     company_name: Technical University of Munich
     company_url: 'https://tum.de' # non functional
@@ -92,9 +120,9 @@ work:
       **Key Highlight: First MLE on the Team**
 
       Responsibilities include:
-      - Architected and improved the Information Retrieval Pipeline for LLM assisted semantic search
-      - Architected cutting-edge ML solutions using fine-tuning, RAG, and agentic systems
-      - Developed robust LLM‑driven agents refining automated hiring and enabling scalable vetting
+      - Architected and deployed LLM-driven agents, including an AI Interviewer and a Github Analyzer
+      - Led development of hybrid Information Retrieval pipeline boosting search relevance
+      - Built SFT & evaluation frameworks for quantification of retrieval and profile-eval pipelines
   - position: Machine Learning Research Intern
     company_name: Indian Institute of Technology (IIT), Kharagpur
     company_url: ''
