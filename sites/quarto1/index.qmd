@@ -1,0 +1,94 @@
+---
+title: "Index"
+page-layout: article
+toc: false
+---
+
+::: {.hero-section}
+<img src="/media/avatar.jpg" alt="Aritra Bandyopadhyay" class="hero-image">
+
+::: {.hero-content}
+<h1>Aritra Bandyopadhyay</h1>
+<div class="hero-role">[ DEPT. OF MACHINE LEARNING ]</div>
+<div class="hero-bio">
+RECORD No. 042:<br>
+Exploring mechanistic interpretability, multimodal systems, and information retrieval. This Quarto template provides a typewriter-inspired layout, recalling classical academic manuscripts and archival records.
+</div>
+
+<div class="d-flex gap-2">
+  <a href="blog/index.qmd" class="btn btn-primary">READ.NOTES</a>
+  <a href="publication/index.qmd" class="btn btn-outline-primary">VIEW.PUBS</a>
+  <a href="/media/resume.pdf" class="btn btn-outline-primary">OPEN.CV</a>
+</div>
+
+<div class="social-links text-muted mt-4">
+  <a href="https://github.com/Techie5879" class="text-decoration-none me-3">GITHUB</a>
+  <a href="https://www.linkedin.com/in/aritraban/" class="text-decoration-none me-3">LINKEDIN</a>
+  <a href="https://scholar.google.com/citations?user=OVO39asAAAAJ&hl=en" class="text-decoration-none me-3">SCHOLAR</a>
+  <a href="mailto:aritraxban@gmail.com" class="text-decoration-none">EMAIL</a>
+</div>
+:::
+:::
+
+## RESEARCH.FOCUS
+
+I'm fascinated by the internal structure of language models, practical information retrieval, and medical-facing computer vision systems. This setup avoids Quarto's rigid built-in about templates in favor of a flexible layout.
+
+::: {.grid .mt-4}
+::: {.g-col-12 .g-col-md-4}
+::: {.custom-card}
+<div class="text-muted mb-2">FILE: 01-FOCUS</div>
+<h3 class="h5 mb-2">INTERPRETABILITY</h3>
+<p class="text-muted mb-0">Mechanistic interpretability, post-training behavior, and making neural representations transparent.</p>
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.custom-card}
+<div class="text-muted mb-2">FILE: 02-ENG</div>
+<h3 class="h5 mb-2">ENGINEERING</h3>
+<p class="text-muted mb-0">Bridging the gap between research fellowships, startup ML engineering, and reliable deployment.</p>
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.custom-card}
+<div class="text-muted mb-2">FILE: 03-EXP</div>
+<h3 class="h5 mb-2">FRAMEWORKS</h3>
+<p class="text-muted mb-0">Maintaining content parity across Quarto, Astro, Jekyll, and Hugo to find the perfect stack.</p>
+:::
+:::
+:::
+
+## FEATURED.PUBLICATION
+
+::: {.custom-card .mt-3}
+<h3 class="h5"><a href="publication/conference-paper/index.qmd" class="text-decoration-none">[Differential Evolution Algorithm Based Hyper-Parameter Selection of CNNs for Speech Command Recognition]</a></h3>
+<div class="text-muted mb-3">VENUE: IJCCI / ECTA | YEAR: 2023</div>
+<p class="mb-3">An evolutionary hyper-parameter search paper exploring the optimal architecture for convolutional neural networks in audio processing.</p>
+<a href="publication/conference-paper/index.qmd" class="btn btn-sm btn-outline-primary">READ.PAPER</a>
+:::
+
+## OPEN.SOURCE.REPOS
+
+::: {.grid .mt-4}
+::: {.g-col-12 .g-col-md-6}
+::: {.custom-card}
+<div class="d-flex justify-content-between align-items-start mb-2">
+  <h3 class="h5 mb-0">PANDAS</h3>
+  <a href="https://github.com/pandas-dev/pandas" class="text-muted text-decoration-none">REPO ↗</a>
+</div>
+<p class="text-muted mb-0">Flexible and powerful data analysis and manipulation library for Python.</p>
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.custom-card}
+<div class="d-flex justify-content-between align-items-start mb-2">
+  <h3 class="h5 mb-0">PYTORCH</h3>
+  <a href="https://github.com/pytorch/pytorch" class="text-muted text-decoration-none">REPO ↗</a>
+</div>
+<p class="text-muted mb-0">The deep learning stack that keeps showing up in research code and production prototypes.</p>
+:::
+:::
+:::

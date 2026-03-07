@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site.js";
+
+const base = import.meta.env.BASE_URL;
+const [featuredPublication] = await getCollection("publications");
+const [featuredPost] = await getCollection("blog");
+---
+
+<BaseLayout title="Aritra · Neo-Brutalist" description={site.about}>
+  <section class="hero">
+    <img src="/media/avatar.jpg" alt="Portrait of Aritra Bandyopadhyay" />
+    <div class="hero-content">
+      <span class="muted">{site.role} @ {site.institution}</span>
+      <h1>{site.name}</h1>
+      <p>{site.about}</p>
+      
+      <div class="hero-actions">
+        <a class="button primary" href={`${base}/blog/`}>Read Blog</a>
+        <a class="button" href={`${base}/publication/`}>Publications</a>
+        <a class="button" style="background: var(--accent-alt)" href="/media/resume.pdf">CV</a>
+      </div>
+      
+      <div class="socials" style="margin-top: 32px;">
+        {site.socials.map((item) => (
+          <a class="pill" href={item.href}>{item.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Overview</h2>
+    <div class="article-card" style="background: var(--accent-highlight);">
+      <p style="font-size: 1.25rem; font-weight: 600;">{site.research}</p>
+      <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <span class="muted" style="margin: 0; background: #fff; color: #000; border: 2px solid #000;">Nested Routing</span>
+        <span class="muted" style="margin: 0; background: #fff; color: #000; border: 2px solid #000;">Content Collections</span>
+        <span class="muted" style="margin: 0; background: #fff; color: #000; border: 2px solid #000;">Brutalist Style</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Featured Pub</h2>
+    <div class="article-card">
+      <span class="meta">{featuredPublication.data.venue} // {featuredPublication.data.pubDate.getFullYear()}</span>
+      <h3>{featuredPublication.data.title}</h3>
+      <p style="margin-bottom: 24px; font-weight: 500;">{featuredPublication.data.description}</p>
+      <div><a class="button" href={`${base}/publication/${featuredPublication.id}/`}>Read Paper →</a></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Projects</h2>
+    <div class="grid">
+      {site.projects.map((project) => (
+        <article class="project-card">
+          <h3>{project.title}</h3>
+          <p style="flex-grow: 1; font-weight: 500;">{project.summary}</p>
+          <div style="margin-top: 24px;"><a class="button" style="font-size: 0.9rem; padding: 8px 16px;" href={project.href}>View Code</a></div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Latest Post</h2>
+    <article class="article-card" style="background: var(--accent-alt);">
+      <span class="meta" style="background: #000; color: #fff;">{featuredPost.data.pubDate.toISOString().slice(0, 10)}</span>
+      <h3>{featuredPost.data.title}</h3>
+      <p style="margin-bottom: 24px; font-weight: 500;">{featuredPost.data.description}</p>
+      <div><a class="button" href={`${base}/blog/${featuredPost.id}/`}>Read Entry →</a></div>
+    </article>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const publications = (await getCollection("publications")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Publications · Astro"
+  pageTitle="Publications"
+  pageIntro="The paper list is generated from a publication collection, the way Astro users often structure content-heavy sites."
+>
+  <section class="article-list">
+    {publications.map((publication) => (
+      <article class="article-card">
+        {publication.data.image && <img src={publication.data.image} alt={publication.data.title} />}
+        <h2>{publication.data.title}</h2>
+        <p class="meta">{publication.data.venue} · {publication.data.pubDate.getFullYear()}</p>
+        <p>{publication.data.description}</p>
+        <p><a class="button primary" href={`${base}/publication/${publication.id}/`}>View publication</a></p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

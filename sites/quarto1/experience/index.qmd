@@ -1,0 +1,99 @@
+---
+title: "Experience"
+---
+
+::: {.content-block}
+## Work
+
+::: {.section-list}
+::: {#role-1}
+### Research Fellow
+::: {.meta-line}
+Supervised Program for Alignment Research · Feb 2025 - Present
+:::
+
+Working on post-training compositionality and the autoregressive hypothesis with external academic mentors.
+:::
+
+::: {#role-2}
+### Machine Learning Engineer
+::: {.meta-line}
+Brighterway (YC S24) · Dec 2024 - Present
+:::
+
+Building pipelines for medical-legal record review and improving information extraction from patient-case records.
+:::
+
+::: {#role-3}
+### ML Research Intern
+::: {.meta-line}
+Technical University of Munich · 2024
+:::
+
+DAAD-WISE scholar exploring multimodal medical point cloud registration at CAMP Lab.
+:::
+
+::: {#role-4}
+### Machine Learning Engineer
+::: {.meta-line}
+Mercor · May 2023 - Aug 2024
+:::
+
+Built LLM-driven agents, retrieval systems, and evaluation workflows as one of the first MLEs on the team.
+:::
+:::
+:::
+
+::: {.content-block}
+## Education
+
+### B.Tech in Computer Science and Technology
+::: {.meta-line}
+Indian Institute of Engineering Science and Technology, Shibpur · 2021 - 2025
+:::
+
+GPA 9.87/10 through the seventh semester, including two perfect 10/10 semesters.
+:::
+
+::: {.content-block}
+## Skills and interests
+
+- Mechanistic Interpretability
+- Computer Vision
+- Information Retrieval
+- PyTorch, NumPy, Pandas
+- Retrieval systems and evaluation tooling
+:::
+
+::: {.content-block}
+## Awards
+
+::: {.section-list}
+::: {#award-1}
+### DAAD-WISE'24 Scholar @ TUM
+::: {.meta-line}
+DAAD · 2024
+:::
+
+Selected among a small national cohort to carry out research at TUM.
+:::
+
+::: {#award-2}
+### JPMorgan Chase Code for Good
+::: {.meta-line}
+JPMC · 2024
+:::
+
+Built an LLM-assisted NGO website proof of concept during the flagship hackathon.
+:::
+
+::: {#award-3}
+### 1st in BrainDead ML Hackathon
+::: {.meta-line}
+IIEST · 2023
+:::
+
+Won first place in an inter-university machine learning competition.
+:::
+:::
+:::

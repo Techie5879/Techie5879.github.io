@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site.js";
+---
+
+<BaseLayout
+  title="Experience · Astro"
+  pageTitle="Experience"
+  pageIntro="Astro makes this page feel like a clean long-form editorial resume."
+>
+  <section class="split">
+    <article class="panel">
+      <h2>Work</h2>
+      <div class="article-list">
+        {site.work.map((item) => (
+          <article class="timeline-item">
+            <h3>{item.title}</h3>
+            <p class="meta">{item.org} · {item.period}</p>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </article>
+
+    <article class="panel">
+      <h2>Education</h2>
+      <div class="article-list">
+        {site.education.map((item) => (
+          <article class="timeline-item">
+            <h3>{item.title}</h3>
+            <p class="meta">{item.org} · {item.period}</p>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+
+      <h2>Selected awards</h2>
+      <div class="article-list">
+        {site.awards.map((item) => (
+          <article class="timeline-item">
+            <h3>{item.title}</h3>
+            <p class="meta">{item.meta}</p>
+            <p>{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </article>
+  </section>
+</BaseLayout>
