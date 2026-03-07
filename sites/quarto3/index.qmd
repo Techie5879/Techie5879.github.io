@@ -1,0 +1,68 @@
+---
+title: "Home"
+page-layout: article
+toc: false
+---
+
+::: {.hero-section}
+
+<h1>Aritra Bandyopadhyay</h1>
+
+<div class="hero-role">Machine Learning Researcher</div>
+<div class="hero-bio">
+Exploring mechanistic interpretability, multimodal systems, and information retrieval. This Quarto template embraces avant-garde minimalism, relying purely on scale, whitespace, and typographic contrast.
+</div>
+
+<div class="d-flex gap-3 flex-wrap">
+  <a href="blog/index.qmd" class="btn btn-primary">Journal</a>
+  <a href="publication/index.qmd" class="btn btn-outline-primary">Publications</a>
+  <a href="/media/resume.pdf" class="btn btn-outline-primary">CV</a>
+</div>
+
+<div class="social-links mt-5 d-flex gap-4">
+  <a href="https://github.com/Techie5879" class="text-decoration-none">GitHub</a>
+  <a href="https://www.linkedin.com/in/aritraban/" class="text-decoration-none">LinkedIn</a>
+  <a href="https://scholar.google.com/citations?user=OVO39asAAAAJ&hl=en" class="text-decoration-none">Scholar</a>
+</div>
+
+:::
+
+## Focus
+
+::: {.custom-card}
+<h3 class="mb-3">Interpretability</h3>
+<p class="mb-0 fs-4">Mechanistic interpretability, post-training behavior, and making neural representations transparent.</p>
+:::
+
+::: {.custom-card}
+<h3 class="mb-3">Engineering</h3>
+<p class="mb-0 fs-4">Bridging the gap between research fellowships, startup ML engineering, and reliable deployment.</p>
+:::
+
+
+## Selected
+
+::: {.custom-card}
+<div class="text-uppercase fw-bold text-muted mb-2">IJCCI / ECTA • 2023</div>
+<h3 class="mb-3"><a href="publication/conference-paper/index.qmd" class="text-decoration-none text-dark">Differential Evolution Algorithm Based Hyper-Parameter Selection of CNNs for Speech Command Recognition</a></h3>
+<p class="mb-4 fs-5">An evolutionary hyper-parameter search paper exploring the optimal architecture for convolutional neural networks in audio processing.</p>
+<a href="publication/conference-paper/index.qmd" class="fw-bold text-uppercase" style="color: #ff4500;">Read Paper →</a>
+:::
+
+## Repositories
+
+::: {.custom-card}
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <h3 class="mb-0">Pandas</h3>
+  <a href="https://github.com/pandas-dev/pandas" class="fw-bold text-uppercase" style="color: #ff4500;">Repo</a>
+</div>
+<p class="mb-0 fs-5">Flexible and powerful data analysis and manipulation library for Python.</p>
+:::
+
+::: {.custom-card}
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <h3 class="mb-0">PyTorch</h3>
+  <a href="https://github.com/pytorch/pytorch" class="fw-bold text-uppercase" style="color: #ff4500;">Repo</a>
+</div>
+<p class="mb-0 fs-5">The deep learning stack that keeps showing up in research code and production prototypes.</p>
+:::

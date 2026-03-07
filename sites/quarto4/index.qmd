@@ -1,0 +1,87 @@
+---
+title: "Home"
+page-layout: article
+toc: false
+---
+
+::: {.hero-section}
+<img src="/media/avatar.jpg" alt="Aritra Bandyopadhyay" class="hero-image">
+
+::: {.hero-content}
+<h1>Aritra Bandyopadhyay</h1>
+<div class="hero-role">Machine Learning Researcher</div>
+<div class="hero-bio">
+<span class="highlight">Exploring mechanistic interpretability, multimodal systems, and information retrieval.</span> This Quarto template provides a "Living Document" layout with marginalia columns, feeling like an active, annotated research file.
+</div>
+
+<div class="d-flex gap-2">
+  <a href="blog/index.qmd" class="btn btn-primary">Read Notes</a>
+  <a href="publication/index.qmd" class="btn btn-outline-primary">Publications</a>
+  <a href="/media/resume.pdf" class="btn btn-outline-primary">CV</a>
+</div>
+
+<div class="mt-4 fs-6">
+  <a href="https://github.com/Techie5879" class="text-decoration-none me-3">GitHub</a>
+  <a href="https://www.linkedin.com/in/aritraban/" class="text-decoration-none me-3">LinkedIn</a>
+  <a href="https://scholar.google.com/citations?user=OVO39asAAAAJ&hl=en" class="text-decoration-none me-3">Scholar</a>
+</div>
+:::
+:::
+
+## Focus Areas
+
+::: {.doc-grid}
+::: {.doc-marginalia}
+**Area 1**<br>Interpretability
+:::
+::: {.doc-content}
+Mechanistic interpretability, post-training behavior, and making neural representations transparent.
+:::
+:::
+
+::: {.doc-grid}
+::: {.doc-marginalia}
+**Area 2**<br>Engineering
+:::
+::: {.doc-content}
+Bridging the gap between research fellowships, startup ML engineering, and reliable deployment.
+:::
+:::
+
+## Highlighted Record
+
+::: {.doc-grid}
+::: {.doc-marginalia}
+**Published:** 2023<br>
+IJCCI / ECTA
+:::
+::: {.doc-content}
+<h3 class="h5"><a href="publication/conference-paper/index.qmd" class="text-decoration-none text-dark">Differential Evolution Algorithm Based Hyper-Parameter Selection of CNNs for Speech Command Recognition</a></h3>
+<p>An evolutionary hyper-parameter search paper exploring the optimal architecture for convolutional neural networks in audio processing.</p>
+<a href="publication/conference-paper/index.qmd" class="btn btn-sm btn-outline-primary">Read Paper</a>
+:::
+:::
+
+## Software
+
+::: {.doc-grid}
+::: {.doc-marginalia}
+**Library**<br>
+[GitHub ↗](https://github.com/pandas-dev/pandas)
+:::
+::: {.doc-content}
+<h3 class="h5 mb-1">Pandas</h3>
+<p class="mb-0">Flexible and powerful data analysis and manipulation library for Python.</p>
+:::
+:::
+
+::: {.doc-grid}
+::: {.doc-marginalia}
+**Framework**<br>
+[GitHub ↗](https://github.com/pytorch/pytorch)
+:::
+::: {.doc-content}
+<h3 class="h5 mb-1">PyTorch</h3>
+<p class="mb-0">The deep learning stack that keeps showing up in research code and production prototypes.</p>
+:::
+:::

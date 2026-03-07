@@ -39,6 +39,14 @@ cp -R "$ROOT_DIR/sites/quarto1/_site/." "$DIST_DIR/quarto1/"
 mkdir -p "$DIST_DIR/quarto2"
 cp -R "$ROOT_DIR/sites/quarto2/_site/." "$DIST_DIR/quarto2/"
 
+"$QUARTO_BIN" render "$ROOT_DIR/sites/quarto3"
+mkdir -p "$DIST_DIR/quarto3"
+cp -R "$ROOT_DIR/sites/quarto3/_site/." "$DIST_DIR/quarto3/"
+
+"$QUARTO_BIN" render "$ROOT_DIR/sites/quarto4"
+mkdir -p "$DIST_DIR/quarto4"
+cp -R "$ROOT_DIR/sites/quarto4/_site/." "$DIST_DIR/quarto4/"
+
 npm --prefix "$ROOT_DIR/sites/astro" install
 npm --prefix "$ROOT_DIR/sites/astro" run build
 mkdir -p "$DIST_DIR/astro"
@@ -54,6 +62,16 @@ npm --prefix "$ROOT_DIR/sites/astro2" run build
 mkdir -p "$DIST_DIR/astro2"
 cp -R "$ROOT_DIR/sites/astro2/dist/." "$DIST_DIR/astro2/"
 
+npm --prefix "$ROOT_DIR/sites/astro3" install
+npm --prefix "$ROOT_DIR/sites/astro3" run build
+mkdir -p "$DIST_DIR/astro3"
+cp -R "$ROOT_DIR/sites/astro3/dist/." "$DIST_DIR/astro3/"
+
+npm --prefix "$ROOT_DIR/sites/astro4" install
+npm --prefix "$ROOT_DIR/sites/astro4" run build
+mkdir -p "$DIST_DIR/astro4"
+cp -R "$ROOT_DIR/sites/astro4/dist/." "$DIST_DIR/astro4/"
+
 bundle install --gemfile "$ROOT_DIR/sites/jekyll/Gemfile"
 BUNDLE_GEMFILE="$ROOT_DIR/sites/jekyll/Gemfile" bundle exec jekyll build --source "$ROOT_DIR/sites/jekyll" --destination "$DIST_DIR/jekyll" --config "$ROOT_DIR/sites/jekyll/_config.yml"
 
@@ -62,5 +80,11 @@ BUNDLE_GEMFILE="$ROOT_DIR/sites/jekyll1/Gemfile" bundle exec jekyll build --sour
 
 bundle install --gemfile "$ROOT_DIR/sites/jekyll2/Gemfile"
 BUNDLE_GEMFILE="$ROOT_DIR/sites/jekyll2/Gemfile" bundle exec jekyll build --source "$ROOT_DIR/sites/jekyll2" --destination "$DIST_DIR/jekyll2" --config "$ROOT_DIR/sites/jekyll2/_config.yml"
+
+bundle install --gemfile "$ROOT_DIR/sites/jekyll3/Gemfile"
+BUNDLE_GEMFILE="$ROOT_DIR/sites/jekyll3/Gemfile" bundle exec jekyll build --source "$ROOT_DIR/sites/jekyll3" --destination "$DIST_DIR/jekyll3" --config "$ROOT_DIR/sites/jekyll3/_config.yml"
+
+bundle install --gemfile "$ROOT_DIR/sites/jekyll4/Gemfile"
+BUNDLE_GEMFILE="$ROOT_DIR/sites/jekyll4/Gemfile" bundle exec jekyll build --source "$ROOT_DIR/sites/jekyll4" --destination "$DIST_DIR/jekyll4" --config "$ROOT_DIR/sites/jekyll4/_config.yml"
 
 touch "$DIST_DIR/.nojekyll"

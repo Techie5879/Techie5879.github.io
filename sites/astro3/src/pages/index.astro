@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site.js";
+
+const base = import.meta.env.BASE_URL;
+const [featuredPublication] = await getCollection("publications");
+const [featuredPost] = await getCollection("blog");
+---
+
+<BaseLayout title="Aritra · The Swiss Grid" description={site.about}>
+  <section class="hero">
+    <span class="muted">{site.role} · {site.institution}</span>
+    <h1>Machine Learning<br>Researcher.</h1>
+    <p>{site.about}</p>
+    <div style="display: flex; gap: 16px; margin-top: 32px;">
+      <a class="button primary" href={`${base}/publication/`}>Publications</a>
+      <a class="button" href={`${base}/blog/`}>Journal</a>
+    </div>
+  </section>
+
+  <aside class="sidebar">
+    <img src="/media/avatar.jpg" alt="Aritra" />
+    <div class="socials">
+      <div class="muted" style="margin-bottom: 8px; font-weight: 600; color: var(--text-main);">LINKS</div>
+      {site.socials.map((item) => (
+        <a href={item.href}>↗ {item.label}</a>
+      ))}
+      <a href="/media/resume.pdf">↗ Curriculum Vitae</a>
+    </div>
+  </aside>
+
+  <section class="panel">
+    <h2>Focus</h2>
+    <div class="panel-content">
+      <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">{site.research}</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Selected Work</h2>
+    <div class="panel-content">
+      <div class="grid">
+        <article class="article-card">
+          <span class="meta">{featuredPublication.data.venue} — {featuredPublication.data.pubDate.getFullYear()}</span>
+          <h3>{featuredPublication.data.title}</h3>
+          <p>{featuredPublication.data.description}</p>
+          <a class="button" href={`${base}/publication/${featuredPublication.id}/`}>Read</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Open Source</h2>
+    <div class="panel-content">
+      <div class="grid">
+        {site.projects.map((project) => (
+          <article class="article-card">
+            <h3>{project.title}</h3>
+            <p>{project.summary}</p>
+            <a class="button" href={project.href}>Repository</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

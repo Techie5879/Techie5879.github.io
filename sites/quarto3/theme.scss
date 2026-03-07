@@ -1,0 +1,173 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-family-monospace: 'JetBrains Mono', ui-monospace, monospace !default;
+
+$primary: #000000 !default;
+$secondary: #666666 !default;
+$success: #000000 !default;
+$info: #000000 !default;
+$warning: #ff4500 !default;
+$danger: #ff4500 !default;
+$light: #ffffff !default;
+$dark: #000000 !default;
+
+$body-bg: #ffffff !default;
+$body-color: #000000 !default;
+
+$link-color: #ff4500 !default;
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;
+
+$border-color: #000000 !default;
+$border-radius: 0 !default;
+
+/*-- scss:rules --*/
+
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+
+// Navbar styling
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 2px solid $primary;
+  padding: 1.5rem 0;
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  font-size: 1.5rem;
+  color: $primary !important;
+  text-transform: uppercase;
+}
+.nav-link {
+  font-weight: 600;
+  color: $primary !important;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.nav-link:hover, .nav-link.active {
+  color: $warning !important;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: $primary;
+  line-height: 1;
+}
+
+h1 { 
+  font-size: 5rem; 
+  margin-bottom: 2rem; 
+  text-transform: uppercase;
+}
+h2 { 
+  font-size: 2.5rem; 
+  margin-top: 5rem; 
+  margin-bottom: 2rem; 
+  text-transform: uppercase;
+}
+h3 { 
+  font-size: 1.5rem; 
+  margin-bottom: 0.5rem;
+}
+
+// Custom hero section
+.hero-section {
+  margin: 5rem 0;
+}
+.hero-image {
+  width: 100%;
+  max-width: 400px;
+  filter: grayscale(100%) contrast(1.2);
+  margin-bottom: 2rem;
+}
+.hero-role {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: $warning;
+}
+.hero-bio {
+  font-size: 1.8rem;
+  max-width: 800px;
+  margin-bottom: 3rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+// Buttons
+.btn-primary {
+  background-color: $primary;
+  border: 2px solid $primary;
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+.btn-primary:hover {
+  background-color: $warning;
+  border-color: $warning;
+}
+
+.btn-outline-primary {
+  color: $primary;
+  border: 2px solid $primary;
+  background-color: transparent;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+.btn-outline-primary:hover {
+  background-color: $primary;
+  color: #ffffff;
+}
+
+// Minimal Cards/Lists
+.custom-card {
+  padding: 2rem 0;
+  border-top: 2px solid $border-color;
+  background: transparent;
+}
+
+.social-links a {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+  color: $primary;
+}
+.social-links a:hover {
+  color: $warning !important;
+  border-color: $warning;
+}
+
+// Overrides
+.quarto-listing-grid .quarto-grid-item {
+  border: none;
+  border-top: 2px solid $primary;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.quarto-grid-item .card-body {
+  padding: 2rem 0;
+}
+.quarto-grid-item .card-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 3rem; }
+  .hero-bio { font-size: 1.2rem; }
+}

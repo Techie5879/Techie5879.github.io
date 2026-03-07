@@ -1,0 +1,11 @@
+---
+title: "Technical Blog"
+listing:
+  contents: llms
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
+---
+
+This Quarto preview uses the built-in listing system for blog navigation.
