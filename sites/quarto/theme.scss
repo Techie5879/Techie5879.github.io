@@ -1,0 +1,248 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif !default;
+$font-family-monospace: 'JetBrains Mono', ui-monospace, monospace !default;
+
+$primary: #171717 !default;
+$secondary: #737373 !default;
+$success: #10B981 !default;
+$info: #3B82F6 !default;
+$warning: #F59E0B !default;
+$danger: #EF4444 !default;
+$light: #FAFAFA !default;
+$dark: #0A0A0A !default;
+
+$body-bg: #FFFFFF !default;
+$body-color: #171717 !default;
+
+$link-color: #3B82F6 !default;
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;
+
+$border-color: #E5E5E5 !default;
+$border-radius: 0.5rem !default;
+$border-radius-lg: 0.75rem !default;
+$border-radius-xl: 1rem !default;
+
+$card-bg: #FFFFFF !default;
+$card-border-color: #E5E5E5 !default;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+// Navbar styling
+.navbar {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid $border-color;
+  padding: 1rem 0;
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $primary !important;
+}
+.nav-link {
+  font-weight: 500;
+  color: $secondary !important;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: $primary !important;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: $primary;
+}
+
+h1 { font-size: 2.5rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid $border-color; padding-bottom: 0.5rem; }
+h3 { font-size: 1.25rem; }
+
+// Custom utilities
+.text-muted {
+  color: $secondary !important;
+}
+.text-mono {
+  font-family: $font-family-monospace;
+  font-size: 0.85em;
+}
+
+// Buttons
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  color: #FFFFFF;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #000000;
+  border-color: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+  color: $primary;
+  border-color: $border-color;
+  font-weight: 500;
+  background-color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+.btn-outline-primary:hover {
+  background-color: $light;
+  border-color: $secondary;
+  color: $primary;
+}
+
+// Custom hero section
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 4rem 0 3rem;
+}
+.hero-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid $border-color;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.hero-content h1 {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.hero-role {
+  font-size: 1.1rem;
+  color: $secondary;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.hero-bio {
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+// Cards
+.custom-card {
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  padding: 1.5rem;
+  background: #FFFFFF;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+.custom-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+// Social links
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.social-link {
+  color: $secondary;
+  font-size: 1.25rem;
+  transition: color 0.2s;
+}
+.social-link:hover {
+  color: $primary;
+}
+
+// Grid overrides
+.g-4 {
+  --bs-gutter-y: 1.5rem;
+  --bs-gutter-x: 1.5rem;
+}
+
+// Quarto Listing overrides
+.quarto-listing-grid .quarto-grid-item {
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  box-shadow: none;
+  background: #FFFFFF;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.quarto-listing-grid .quarto-grid-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+.quarto-grid-item .card-body {
+  padding: 1.5rem;
+}
+.quarto-grid-item .card-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: $primary;
+}
+.quarto-grid-item .card-text {
+  color: $secondary;
+}
+.quarto-grid-item .listing-date {
+  font-family: $font-family-monospace;
+  font-size: 0.85em;
+  color: $secondary;
+}
+.quarto-grid-item .listing-author {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+// Content Blocks and Lists
+.content-block {
+  margin: 3rem 0;
+}
+.content-block > h2 {
+  margin-bottom: 1.5rem;
+}
+
+.section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.section-list > div {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
+}
+.section-list > div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.meta-line {
+  font-family: $font-family-monospace;
+  color: $secondary;
+  font-size: 0.85em;
+  margin-bottom: 0.75rem;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .social-links {
+    justify-content: center;
+  }
+}

@@ -1,87 +1,93 @@
 ---
-title: "Aritra Bandyopadhyay"
-image: /media/avatar.jpg
-about:
-  template: trestles
-  image-width: 14em
-  image-shape: round
-  links:
-    - icon: github
-      text: GitHub
-      href: https://github.com/Techie5879
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/aritraban/
-    - icon: mortarboard
-      text: Scholar
-      href: https://scholar.google.com/citations?user=OVO39asAAAAJ&hl=en
-    - icon: envelope
-      text: Email
-      href: mailto:aritraxban@gmail.com
+title: "Home"
+page-layout: article
+toc: false
 ---
 
-Machine learning researcher and engineer exploring mechanistic interpretability, multimodal systems, and information retrieval while comparing how different static site generators handle the same academic portfolio structure.
+::: {.hero-section}
+<img src="/media/avatar.jpg" alt="Aritra Bandyopadhyay" class="hero-image">
 
-::: {.hero-actions}
-[Open the blog](/quarto/blog/)
-[Browse publications](/quarto/publication/)
-[View resume](/media/resume.pdf)
-:::
+::: {.hero-content}
+<h1>Aritra Bandyopadhyay</h1>
+<div class="hero-role">Machine Learning Researcher & Engineer • IIEST Shibpur</div>
+<div class="hero-bio">
+Exploring mechanistic interpretability, multimodal systems, and information retrieval. This Quarto template provides a clean, Vercel-inspired UI layout tailored for academic research portfolios.
+</div>
 
-::: {.content-block}
-## Research at a glance
+<div class="d-flex gap-2">
+  <a href="blog/index.qmd" class="btn btn-primary">Read the blog</a>
+  <a href="publication/index.qmd" class="btn btn-outline-primary">Browse publications</a>
+  <a href="/media/resume.pdf" class="btn btn-outline-primary">View resume</a>
+</div>
 
-I'm fascinated by the internal structure of language models, practical information retrieval, and medical-facing computer vision systems. This Quarto preview deliberately leans into the conventions people actually use in research websites: a built-in about layout, clean Bootstrap typography, and listing-driven navigation.
-
-::: {.stats-grid}
-::: {.stats-card}
-### Current focus
-Mechanistic interpretability, post-training behavior, and multimodal reasoning.
-:::
-
-::: {.stats-card}
-### Day job energy
-Research fellowships, startup ML engineering, and a portfolio that still needs to feel human.
-:::
-
-::: {.stats-card}
-### Site experiment
-Same content and routes under `/quarto/`, `/astro/`, `/jekyll/`, and `/hugo/`.
-:::
+<div class="social-links text-muted mt-3 text-mono">
+  <a href="https://github.com/Techie5879" class="text-decoration-none me-3">GitHub ↗</a>
+  <a href="https://www.linkedin.com/in/aritraban/" class="text-decoration-none me-3">LinkedIn ↗</a>
+  <a href="https://scholar.google.com/citations?user=OVO39asAAAAJ&hl=en" class="text-decoration-none me-3">Scholar ↗</a>
+  <a href="mailto:aritraxban@gmail.com" class="text-decoration-none">Email ↗</a>
+</div>
 :::
 :::
 
-::: {.content-block}
-## Featured publication
+## Research Focus
 
-[Differential Evolution Algorithm Based Hyper-Parameter Selection of CNNs for Speech Command Recognition](/quarto/publication/conference-paper/)
+I'm fascinated by the internal structure of language models, practical information retrieval, and medical-facing computer vision systems. This setup avoids Quarto's rigid built-in about templates in favor of a flexible, high-end SCSS grid.
 
-An evolutionary hyper-parameter search paper published through IJCCI / ECTA, paired with code and an external PDF.
+::: {.grid .mt-4}
+::: {.g-col-12 .g-col-md-4}
+::: {.custom-card}
+<div class="text-muted text-mono mb-2">01 // Focus</div>
+<h3 class="h5 mb-2">Interpretability</h3>
+<p class="text-muted mb-0">Mechanistic interpretability, post-training behavior, and making neural representations transparent.</p>
+:::
 :::
 
-::: {.content-block}
-## Projects
-
-::: {.project-grid}
-::: {.project-card}
-### Pandas
-[Repository](https://github.com/pandas-dev/pandas)
-
-Flexible and powerful data analysis and manipulation library for Python.
+::: {.g-col-12 .g-col-md-4}
+::: {.custom-card}
+<div class="text-muted text-mono mb-2">02 // Experience</div>
+<h3 class="h5 mb-2">Engineering</h3>
+<p class="text-muted mb-0">Bridging the gap between research fellowships, startup ML engineering, and reliable deployment.</p>
+:::
 :::
 
-::: {.project-card}
-### PyTorch
-[Repository](https://github.com/pytorch/pytorch)
-
-The deep learning stack that keeps showing up in research code and production prototypes.
+::: {.g-col-12 .g-col-md-4}
+::: {.custom-card}
+<div class="text-muted text-mono mb-2">03 // Experiment</div>
+<h3 class="h5 mb-2">Frameworks</h3>
+<p class="text-muted mb-0">Maintaining content parity across Quarto, Astro, Jekyll, and Hugo to find the perfect stack.</p>
+:::
+:::
 :::
 
-::: {.project-card}
-### Scikit-learn
-[Repository](https://github.com/scikit-learn/scikit-learn)
+## Featured Publication
 
-A dependable baseline toolkit for classical ML, tutorials, and reproducible experiments.
+::: {.custom-card .mt-3}
+<h3 class="h5">[Differential Evolution Algorithm Based Hyper-Parameter Selection of CNNs for Speech Command Recognition](publication/conference-paper/index.qmd)</h3>
+<div class="text-muted mb-3 text-mono">IJCCI / ECTA • 2023</div>
+<p class="mb-3">An evolutionary hyper-parameter search paper exploring the optimal architecture for convolutional neural networks in audio processing.</p>
+<a href="publication/conference-paper/index.qmd" class="btn btn-sm btn-outline-primary">Read Paper →</a>
+:::
+
+## Open Source
+
+::: {.grid .mt-4}
+::: {.g-col-12 .g-col-md-6}
+::: {.custom-card}
+<div class="d-flex justify-content-between align-items-start mb-2">
+  <h3 class="h5 mb-0">Pandas</h3>
+  <a href="https://github.com/pandas-dev/pandas" class="text-muted text-mono text-decoration-none">Repository ↗</a>
+</div>
+<p class="text-muted mb-0">Flexible and powerful data analysis and manipulation library for Python.</p>
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.custom-card}
+<div class="d-flex justify-content-between align-items-start mb-2">
+  <h3 class="h5 mb-0">PyTorch</h3>
+  <a href="https://github.com/pytorch/pytorch" class="text-muted text-mono text-decoration-none">Repository ↗</a>
+</div>
+<p class="text-muted mb-0">The deep learning stack that keeps showing up in research code and production prototypes.</p>
 :::
 :::
 :::
