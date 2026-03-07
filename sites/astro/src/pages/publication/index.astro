@@ -20,7 +20,7 @@ const publications = (await getCollection("publications")).sort(
         <h2>{publication.data.title}</h2>
         <p class="meta">{publication.data.venue} · {publication.data.pubDate.getFullYear()}</p>
         <p>{publication.data.description}</p>
-        <p><a class="button primary" href={`${base}publication/${publication.id}/`}>View publication</a></p>
+        <p><a class="button primary" href={`${base}/publication/${publication.id}/`}>View publication</a></p>
       </article>
     ))}
   </section>

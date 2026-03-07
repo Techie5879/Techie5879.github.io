@@ -17,8 +17,8 @@ const [featuredPost] = await getCollection("blog");
       <p>{site.role} · {site.institution}</p>
       <p>{site.about}</p>
       <div class="hero-actions">
-        <a class="button primary" href={`${base}blog/`}>Read notes</a>
-        <a class="button" href={`${base}publication/`}>Browse publications</a>
+        <a class="button primary" href={`${base}/blog/`}>Read notes</a>
+        <a class="button" href={`${base}/publication/`}>Browse publications</a>
         <a class="button" href="/media/resume.pdf">Resume</a>
       </div>
       <div class="socials">
@@ -47,7 +47,7 @@ const [featuredPost] = await getCollection("blog");
         <h3>{featuredPublication.data.title}</h3>
         <p class="meta">{featuredPublication.data.venue} · {featuredPublication.data.pubDate.getFullYear()}</p>
         <p>{featuredPublication.data.description}</p>
-        <p><a class="button" href={`${base}publication/${featuredPublication.id}/`}>Open paper</a></p>
+        <p><a class="button" href={`${base}/publication/${featuredPublication.id}/`}>Open paper</a></p>
       </div>
     </article>
   </section>
@@ -71,7 +71,7 @@ const [featuredPost] = await getCollection("blog");
       <h3>{featuredPost.data.title}</h3>
       <p class="meta">{featuredPost.data.pubDate.toISOString().slice(0, 10)}</p>
       <p>{featuredPost.data.description}</p>
-      <p><a class="button" href={`${base}blog/${featuredPost.id}/`}>Open post</a></p>
+      <p><a class="button" href={`${base}/blog/${featuredPost.id}/`}>Open post</a></p>
     </article>
   </section>
 </BaseLayout>

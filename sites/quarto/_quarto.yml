@@ -7,13 +7,13 @@ website:
   site-path: "/quarto/"
   navbar:
     left:
-      - href: /quarto/
+      - href: index.qmd
         text: Home
-      - href: /quarto/publication/
+      - href: publication/index.qmd
         text: Publications
-      - href: /quarto/experience/
+      - href: experience/index.qmd
         text: Experience
-      - href: /quarto/blog/
+      - href: blog/index.qmd
         text: Blog
     right:
       - text: CV

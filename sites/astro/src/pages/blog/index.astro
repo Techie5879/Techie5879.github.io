@@ -23,7 +23,7 @@ const posts = (await getCollection("blog")).sort(
         <div class="route-row">
           {post.data.categories.map((category) => <span class="pill">{category}</span>)}
         </div>
-        <p><a class="button primary" href={`${base}blog/${post.id}/`}>Read post</a></p>
+        <p><a class="button primary" href={`${base}/blog/${post.id}/`}>Read post</a></p>
       </article>
     ))}
   </section>
