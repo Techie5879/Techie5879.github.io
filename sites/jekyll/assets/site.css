@@ -1,0 +1,178 @@
+:root {
+  --paper: #f8f7f3;
+  --surface: #ffffff;
+  --ink: #1c1c1c;
+  --muted: #666355;
+  --line: #ddd9ce;
+  --accent: #2d5f8b;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #fbfaf6 0%, #f2efe7 100%);
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.shell {
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem;
+}
+
+.masthead,
+.footer,
+.hero,
+.panel,
+.entry {
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.masthead,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand small,
+.meta,
+.lede {
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav a,
+.pill,
+.button {
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  padding: 0.65rem 0.95rem;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.hero {
+  margin: 1.3rem 0;
+  padding: 1.5rem;
+  border-radius: 26px;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.hero img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.4rem);
+  margin: 0;
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.panel,
+.entry {
+  border-radius: 20px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+.grid,
+.columns,
+.entries {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.columns {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.entry img {
+  border-radius: 14px;
+  margin-bottom: 0.85rem;
+}
+
+.entry p,
+.panel p,
+.article-body {
+  line-height: 1.75;
+}
+
+.article-body pre {
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #f3f4f6;
+}
+
+.route-row,
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+audio {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+@media (max-width: 800px) {
+  .hero,
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .masthead,
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

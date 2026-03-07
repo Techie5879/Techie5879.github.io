@@ -1,5 +1,15 @@
-/public/
-/resources/_gen/
+/dist/
+/.tools/
+/sites/astro/.astro/
+/sites/astro/dist/
+/sites/astro/node_modules/
+/sites/hugo/public/
+/sites/hugo/resources/_gen/
+/sites/jekyll/.bundle/
+/sites/jekyll/_site/
+/sites/jekyll/vendor/
+/sites/quarto/.quarto/
+/sites/quarto/_site/
 .hugo_build.lock
 .cursorignore
 hugo_stats.json

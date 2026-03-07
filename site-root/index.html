@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>techie5879.github.io framework previews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f1e8;
+        --surface: rgba(255, 255, 255, 0.82);
+        --text: #1f1c17;
+        --muted: #5a5147;
+        --border: rgba(31, 28, 23, 0.12);
+        --accent: #9f5c32;
+        --shadow: 0 24px 60px rgba(80, 59, 39, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(159, 92, 50, 0.24), transparent 30%),
+          linear-gradient(160deg, #f9f7f1 0%, #efe7d8 48%, #f4ecdf 100%);
+      }
+
+      a { color: inherit; }
+      .shell {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0 4rem;
+      }
+
+      .hero {
+        display: grid;
+        gap: 1.5rem;
+        padding: 2rem;
+        border: 1px solid var(--border);
+        border-radius: 32px;
+        background: var(--surface);
+        backdrop-filter: blur(14px);
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow,
+      .chip {
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        line-height: 1;
+      }
+
+      h1 { font-size: clamp(2.7rem, 6vw, 5.4rem); }
+      h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+      p {
+        margin: 0;
+        max-width: 64ch;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .meta span,
+      .route-list a {
+        padding: 0.65rem 1rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.72);
+        text-decoration: none;
+      }
+
+      .frameworks {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .card {
+        display: grid;
+        gap: 1rem;
+        padding: 1.35rem;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 40px rgba(80, 59, 39, 0.08);
+      }
+
+      .card h3 {
+        margin: 0;
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        font-size: 0.97rem;
+      }
+
+      .cta,
+      .route-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .cta a {
+        text-decoration: none;
+        padding: 0.8rem 1.2rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-weight: 700;
+      }
+
+      .cta a.primary {
+        background: var(--accent);
+        color: #fffdf7;
+        border-color: transparent;
+      }
+
+      .section {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 28px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .route-list { margin-top: 1rem; }
+
+      @media (max-width: 720px) {
+        .shell { width: min(100% - 1rem, 1120px); padding-top: 1rem; }
+        .hero { padding: 1.4rem; border-radius: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="eyebrow">Personal site experiments</div>
+        <h1>One domain, four framework previews.</h1>
+        <p>
+          This repo now treats `techie5879.github.io` as a comparison lab. Each preview keeps the same information architecture inspired by the current academic portfolio site, but lets the framework express its own ecosystem defaults.
+        </p>
+        <div class="meta">
+          <span>Root chooser</span>
+          <span>Shared content model</span>
+          <span>Subpath-safe Pages deploy</span>
+        </div>
+        <div class="frameworks">
+          <article class="card">
+            <div class="chip">Hugo</div>
+            <h3>Academic CV / Hugo Blox</h3>
+            <p>The existing Hugo academic site, moved into its own source folder and published at `/hugo/`.</p>
+            <div class="cta"><a class="primary" href="/hugo/">Open Hugo</a></div>
+          </article>
+          <article class="card">
+            <div class="chip">Quarto</div>
+            <h3>Bootswatch + about/listing pages</h3>
+            <p>A Quarto website leaning on the patterns academics actually use: about pages, listings, and a polished default theme.</p>
+            <div class="cta"><a class="primary" href="/quarto/">Open Quarto</a></div>
+          </article>
+          <article class="card">
+            <div class="chip">Astro</div>
+            <h3>Content-first modern portfolio</h3>
+            <p>A lightweight Astro build with content collections and a fast editorial layout for reading and browsing.</p>
+            <div class="cta"><a class="primary" href="/astro/">Open Astro</a></div>
+          </article>
+          <article class="card">
+            <div class="chip">Jekyll</div>
+            <h3>al-folio-inspired academic profile</h3>
+            <p>A minimal academic site patterned after the Jekyll portfolio ecosystem and collection-driven content.</p>
+            <div class="cta"><a class="primary" href="/jekyll/">Open Jekyll</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="eyebrow">Comparable routes</div>
+        <h2>Each preview exposes the same core paths.</h2>
+        <div class="route-list">
+          <a href="/hugo/blog/">`/hugo/blog/`</a>
+          <a href="/quarto/blog/">`/quarto/blog/`</a>
+          <a href="/astro/blog/">`/astro/blog/`</a>
+          <a href="/jekyll/blog/">`/jekyll/blog/`</a>
+          <a href="/hugo/experience/">`/hugo/experience/`</a>
+          <a href="/quarto/publication/">`/quarto/publication/`</a>
+          <a href="/astro/publication/conference-paper/">`/astro/publication/conference-paper/`</a>
+          <a href="/jekyll/publication/conference-paper/">`/jekyll/publication/conference-paper/`</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

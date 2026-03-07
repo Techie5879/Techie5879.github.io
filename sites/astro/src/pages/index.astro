@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site.js";
+
+const base = import.meta.env.BASE_URL;
+const [featuredPublication] = await getCollection("publications");
+const [featuredPost] = await getCollection("blog");
+---
+
+<BaseLayout title="Aritra · Astro" description={site.about}>
+  <section class="hero">
+    <img src="/media/avatar.jpg" alt="Portrait of Aritra Bandyopadhyay" />
+    <div>
+      <p class="muted">Modern content-first portfolio</p>
+      <h1>{site.name}</h1>
+      <p>{site.role} · {site.institution}</p>
+      <p>{site.about}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={`${base}blog/`}>Read notes</a>
+        <a class="button" href={`${base}publication/`}>Browse publications</a>
+        <a class="button" href="/media/resume.pdf">Resume</a>
+      </div>
+      <div class="socials">
+        {site.socials.map((item) => (
+          <a class="pill" href={item.href}>{item.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="split">
+    <article class="panel">
+      <h2>Research at a glance</h2>
+      <p>{site.research}</p>
+      <div class="route-row">
+        <span class="pill">Nested routes</span>
+        <span class="pill">Markdown collections</span>
+        <span class="pill">Static export</span>
+      </div>
+    </article>
+
+    <article class="panel">
+      <h2>Featured publication</h2>
+      <div class="article-card">
+        <img src="/media/publication-conference-paper.png" alt="Publication preview" />
+        <h3>{featuredPublication.data.title}</h3>
+        <p class="meta">{featuredPublication.data.venue} · {featuredPublication.data.pubDate.getFullYear()}</p>
+        <p>{featuredPublication.data.description}</p>
+        <p><a class="button" href={`${base}publication/${featuredPublication.id}/`}>Open paper</a></p>
+      </div>
+    </article>
+  </section>
+
+  <section class="panel">
+    <h2>Projects</h2>
+    <div class="grid">
+      {site.projects.map((project) => (
+        <article class="project-card">
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+          <p><a class="button" href={project.href}>Repository</a></p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Recent writing</h2>
+    <article class="article-card">
+      <h3>{featuredPost.data.title}</h3>
+      <p class="meta">{featuredPost.data.pubDate.toISOString().slice(0, 10)}</p>
+      <p>{featuredPost.data.description}</p>
+      <p><a class="button" href={`${base}blog/${featuredPost.id}/`}>Open post</a></p>
+    </article>
+  </section>
+</BaseLayout>

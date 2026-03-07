@@ -1,0 +1,87 @@
+---
+title: "Aritra Bandyopadhyay"
+image: /media/avatar.jpg
+about:
+  template: trestles
+  image-width: 14em
+  image-shape: round
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/Techie5879
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/aritraban/
+    - icon: mortarboard
+      text: Scholar
+      href: https://scholar.google.com/citations?user=OVO39asAAAAJ&hl=en
+    - icon: envelope
+      text: Email
+      href: mailto:aritraxban@gmail.com
+---
+
+Machine learning researcher and engineer exploring mechanistic interpretability, multimodal systems, and information retrieval while comparing how different static site generators handle the same academic portfolio structure.
+
+::: {.hero-actions}
+[Open the blog](/quarto/blog/)
+[Browse publications](/quarto/publication/)
+[View resume](/media/resume.pdf)
+:::
+
+::: {.content-block}
+## Research at a glance
+
+I'm fascinated by the internal structure of language models, practical information retrieval, and medical-facing computer vision systems. This Quarto preview deliberately leans into the conventions people actually use in research websites: a built-in about layout, clean Bootstrap typography, and listing-driven navigation.
+
+::: {.stats-grid}
+::: {.stats-card}
+### Current focus
+Mechanistic interpretability, post-training behavior, and multimodal reasoning.
+:::
+
+::: {.stats-card}
+### Day job energy
+Research fellowships, startup ML engineering, and a portfolio that still needs to feel human.
+:::
+
+::: {.stats-card}
+### Site experiment
+Same content and routes under `/quarto/`, `/astro/`, `/jekyll/`, and `/hugo/`.
+:::
+:::
+:::
+
+::: {.content-block}
+## Featured publication
+
+[Differential Evolution Algorithm Based Hyper-Parameter Selection of CNNs for Speech Command Recognition](/quarto/publication/conference-paper/)
+
+An evolutionary hyper-parameter search paper published through IJCCI / ECTA, paired with code and an external PDF.
+:::
+
+::: {.content-block}
+## Projects
+
+::: {.project-grid}
+::: {.project-card}
+### Pandas
+[Repository](https://github.com/pandas-dev/pandas)
+
+Flexible and powerful data analysis and manipulation library for Python.
+:::
+
+::: {.project-card}
+### PyTorch
+[Repository](https://github.com/pytorch/pytorch)
+
+The deep learning stack that keeps showing up in research code and production prototypes.
+:::
+
+::: {.project-card}
+### Scikit-learn
+[Repository](https://github.com/scikit-learn/scikit-learn)
+
+A dependable baseline toolkit for classical ML, tutorials, and reproducible experiments.
+:::
+:::
+:::
