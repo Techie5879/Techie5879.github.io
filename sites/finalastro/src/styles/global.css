@@ -92,23 +92,43 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
   content: "[";
   color: var(--border);
   opacity: 0;
-  transition: opacity 0.2s;
   margin-right: 2px;
+  display: inline-block;
+  transition: opacity 0.15s ease;
 }
 .nav a::after {
   content: "]";
   color: var(--border);
   opacity: 0;
-  transition: opacity 0.2s;
   margin-left: 2px;
+  display: inline-block;
+  transition: opacity 0.15s ease;
 }
+
+@keyframes bracket-in-left {
+  0%   { opacity: 0; transform: translateX(-14px); }
+  35%  { opacity: 1; }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes bracket-in-right {
+  0%   { opacity: 0; transform: translateX(14px); }
+  35%  { opacity: 1; }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
 .nav a:hover {
   color: var(--accent);
   background: var(--bg-alt);
 }
-.nav a:hover::before, .nav a:hover::after {
+.nav a:hover::before {
   opacity: 1;
   color: var(--accent);
+  animation: bracket-in-left 0.32s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+.nav a:hover::after {
+  opacity: 1;
+  color: var(--accent);
+  animation: bracket-in-right 0.32s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
 /* Hero Section */

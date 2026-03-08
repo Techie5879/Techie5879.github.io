@@ -5,7 +5,7 @@ export const site = {
   tagline:
     "Machine learning research, technical writing, and system building.",
   about:
-    "Welcome to my digital corner. I work across mechanistic interpretability, computer vision, and information retrieval, with experience spanning applied ML engineering at Brighterway (YC S24) and Mercor, alongside academic research.",
+    'Welcome to my digital corner. I work across mechanistic interpretability, computer vision, and information retrieval, with experience spanning applied ML engineering at <strong>Brighterway (YC S24)</strong> and <strong>Mercor</strong>, alongside academic research.',
   research:
     "I am fascinated by mechanistic interpretability, multimodal systems, and practical information retrieval.",
   home: {
@@ -27,6 +27,32 @@ export const site = {
       "publication/conference-paper",
       "logs/llms",
       "downtime/reflections"
+    ],
+    repos: [
+      {
+        name: "tabrewind",
+        description: "Local-first browser history search with hybrid BM25 + vector retrieval. Privacy-first, no cloud dependencies.",
+        href: "https://github.com/Techie5879/tabrewind",
+        lang: "Python",
+        langColor: "#3572A5",
+        tags: ["SQLite", "FTS5", "llama.cpp"]
+      },
+      {
+        name: "webpage-tts",
+        description: "Chrome extension + FastAPI backend for local text-to-speech on any webpage. Runs MLX Qwen3-TTS on Apple Silicon.",
+        href: "https://github.com/Techie5879/webpage-tts",
+        lang: "TypeScript",
+        langColor: "#3178C6",
+        tags: ["MLX", "Chrome Extension", "FastAPI"]
+      },
+      {
+        name: "mech-interp",
+        description: "Experiments in mechanistic interpretability — circuits, probes, and feature analysis with TransformerLens.",
+        href: "https://github.com/Techie5879/mech-interp",
+        lang: "Jupyter Notebook",
+        langColor: "#DA5B0B",
+        tags: ["TransformerLens", "SPAR", "PyTorch"]
+      }
     ]
   },
   socials: [

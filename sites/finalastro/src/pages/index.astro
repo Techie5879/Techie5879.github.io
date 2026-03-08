@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import RepoCard from "../components/RepoCard.astro";
 import { site } from "../data/site.js";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -124,7 +125,7 @@ const highlights = site.home.highlights
     <div class="hero-copy">
       <h1>{site.name}</h1>
       <p>{site.role}</p>
-      <p>{site.about}</p>
+      <p set:html={site.about} />
       
       <div class="socials">
         {site.socials.map((item) => (
@@ -157,7 +158,25 @@ const highlights = site.home.highlights
 
   <section class="panel highlights-panel">
     <h2>Highlights</h2>
+
+    <div class="repos-subsection">
+      <p class="subsection-label">repos</p>
+      <div class="repos-grid">
+        {site.home.repos.map((repo) => (
+          <RepoCard
+            name={repo.name}
+            description={repo.description}
+            href={repo.href}
+            lang={repo.lang}
+            langColor={repo.langColor}
+            tags={repo.tags}
+          />
+        ))}
+      </div>
+    </div>
+
     <div class="grid highlights-grid">
+      <p class="highlights-list-label">recent</p>
       {highlights.map((item) => (
         <article class="article-card highlight-item">
           <p class="highlight-label">{item.label}</p>
@@ -285,11 +304,46 @@ const highlights = site.home.highlights
     margin-bottom: 10px;
   }
 
+  /* ── Repos subsection ── */
+  .repos-subsection {
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
+
+  .subsection-label {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.07em;
+    text-transform: lowercase;
+    color: var(--text-muted);
+    margin: 0 0 14px 0;
+  }
+
+  .repos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  /* ── Highlights list sub-label ── */
+  .highlights-list-label {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.07em;
+    text-transform: lowercase;
+    color: var(--text-muted);
+    margin: 0 0 4px 0;
+  }
+
   @media (max-width: 700px) {
     .meta-row {
       grid-template-columns: 1fr;
       gap: 8px;
       padding: 12px 0;
+    }
+
+    .repos-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

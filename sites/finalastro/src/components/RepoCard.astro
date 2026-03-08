@@ -1,0 +1,185 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  href: string;
+  lang: string;
+  langColor: string;
+  tags: string[];
+}
+
+const { name, description, href, lang, langColor, tags } = Astro.props;
+---
+
+<a class="repo-card" href={href} target="_blank" rel="noopener noreferrer">
+  <div class="repo-card-top">
+    <span class="repo-name">{name}</span>
+    <svg class="repo-ext-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+      <polyline points="15 3 21 3 21 9"></polyline>
+      <line x1="10" y1="14" x2="21" y2="3"></line>
+    </svg>
+  </div>
+
+  <p class="repo-desc">{description}</p>
+
+  <div class="repo-meta">
+    <span class="lang-badge">
+      <span class="lang-dot" style={`background-color: ${langColor}`}></span>
+      <span>{lang}</span>
+    </span>
+    <div class="tag-list">
+      {tags.map((t) => <span class="repo-tag">{t}</span>)}
+    </div>
+  </div>
+</a>
+
+<style>
+  .repo-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    padding: 22px 24px 20px;
+    transition:
+      border-color 0.22s ease,
+      transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 0.22s ease,
+      background 0.22s ease;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    /* Prevent global a:hover border-bottom from interfering */
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Top accent line — slides in from left on hover */
+  .repo-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+    z-index: 1;
+  }
+
+  .repo-card:hover {
+    border-color: var(--accent);
+    border-bottom-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(139, 38, 53, 0.09);
+    background: var(--bg-alt);
+  }
+
+  .repo-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* ── Top row ── */
+  .repo-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .repo-name {
+    font-family: var(--font-mono);
+    font-size: 0.87rem;
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+    word-break: break-all;
+  }
+
+  .repo-card:hover .repo-name {
+    color: var(--accent);
+  }
+
+  .repo-ext-icon {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    margin-top: 1px;
+  }
+
+  .repo-card:hover .repo-ext-icon {
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  /* ── Description ── */
+  .repo-desc {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  /* ── Meta footer ── */
+  .repo-meta {
+    /* Two explicit rows: lang badge then tags — column layout keeps heights deterministic */
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 16px;
+    padding-top: 13px;
+    border-top: 1px solid var(--border);
+  }
+
+  .lang-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .lang-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* Pin to the height of 2 tag-rows so all cards share the same meta height.
+       Tag height ≈ 20px, gap 5px → 2 rows = 45px. */
+    min-height: 58px;
+    align-content: flex-start;
+  }
+
+  .repo-tag {
+    font-family: var(--font-mono);
+    font-size: 0.71rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .repo-card:hover .repo-tag {
+    border-color: rgba(139, 38, 53, 0.25);
+    color: var(--text-main);
+  }
+</style>

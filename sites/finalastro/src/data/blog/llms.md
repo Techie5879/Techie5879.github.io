@@ -1,5 +1,5 @@
 ---
-title: Come back later
+title: First commit
 description: A placeholder notebook-style post for future language model notes.
 pubDate: 2023-10-24
 categories:

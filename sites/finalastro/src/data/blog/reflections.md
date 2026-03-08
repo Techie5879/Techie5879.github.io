@@ -1,5 +1,5 @@
 ---
-title: Come back later
+title: Opening notes
 description: A placeholder for future reflections on life, philosophy, and learning.
 pubDate: 2023-10-24
 section: downtime
