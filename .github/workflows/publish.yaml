@@ -1,8 +1,5 @@
 name: Deploy website to GitHub Pages
 
-env:
-  HUGO_VERSION: '0.126.3'
-
 on:
   push:
     branches: ["main"]
@@ -31,33 +28,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.22'
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
-
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Build combined site
-        env:
-          HUGO_ENVIRONMENT: production
-          SITE_ORIGIN: ${{ steps.pages.outputs.base_url }}
+      - name: Build site
         run: |
           chmod +x scripts/build-all.sh
           ./scripts/build-all.sh

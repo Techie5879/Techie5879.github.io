@@ -2,7 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site } from "../../data/site.js";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path) => `${base}${path}`;
 
 const monthMap = {
   Jan: 0,
@@ -68,7 +69,7 @@ function getLogoClass(logo) {
             {item.logo && (
               <div class="org-logo">
                 <img
-                  src={`${base}/logos/${item.logo}`}
+                  src={withBase(`/logos/${item.logo}`)}
                   alt={item.org}
                   class={getLogoClass(item.logo)}
                 />

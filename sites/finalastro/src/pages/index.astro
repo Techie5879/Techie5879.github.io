@@ -3,7 +3,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site.js";
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path) => `${base}${path}`;
 const publications = await getCollection("publications");
 const allPosts = await getCollection("blog");
 
@@ -76,7 +77,7 @@ function resolveHighlight(ref) {
 
     return {
       label: "Publication",
-      href: `${base}/publication/${publication.id}/`,
+      href: withBase(`/publication/${publication.id}/`),
       title: publication.data.title,
       meta: `${publication.data.venue} | ${fmtDate(publication.data.pubDate)}`,
       description: publication.data.description
@@ -89,7 +90,7 @@ function resolveHighlight(ref) {
 
     return {
       label: "Technical",
-      href: `${base}/blog/technical/${post.id}/`,
+      href: withBase(`/blog/technical/${post.id}/`),
       title: post.data.title,
       meta: getPostMeta(post),
       description: post.data.description
@@ -102,7 +103,7 @@ function resolveHighlight(ref) {
 
     return {
       label: "Writing",
-      href: `${base}/blog/writing/${post.id}/`,
+      href: withBase(`/blog/writing/${post.id}/`),
       title: post.data.title,
       meta: getPostMeta(post),
       description: post.data.description
@@ -119,7 +120,7 @@ const highlights = site.home.highlights
 
 <BaseLayout title="Aritra | Astro" description={site.about}>
   <section class="hero">
-    <img src={`${base}/media/avatar.jpg`} alt="Portrait of Aritra Bandyopadhyay" />
+    <img src={withBase("/media/avatar.jpg")} alt="Portrait of Aritra Bandyopadhyay" />
     <div class="hero-copy">
       <h1>{site.name}</h1>
       <p>{site.role}</p>

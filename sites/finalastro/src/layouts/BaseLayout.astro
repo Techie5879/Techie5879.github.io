@@ -9,7 +9,8 @@ const {
   pageIntro
 } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path) => `${base}${path}`;
 
 function getIcon(label) {
   const lc = label.toLowerCase();
@@ -40,12 +41,12 @@ function getIcon(label) {
     <main class="shell">
       <header class="site-header">
         <nav class="nav">
-          <a href={`${base}/`}>Home</a>
-          <a href={`${base}/experience/`}>Experience</a>
-          <a href={`${base}/blog/technical/`}>Technical</a>
-          <a href={`${base}/blog/writing/`}>Writing</a>
-          <a href={`${base}/publication/`}>Publications</a>
-          <a href={`${base}/resume.pdf`}>Resume</a>
+          <a href={withBase("/")}>Home</a>
+          <a href={withBase("/experience/")}>Experience</a>
+          <a href={withBase("/blog/technical/")}>Technical</a>
+          <a href={withBase("/blog/writing/")}>Writing</a>
+          <a href={withBase("/publication/")}>Publications</a>
+          <a href={withBase("/resume.pdf")}>Resume</a>
         </nav>
       </header>
 
