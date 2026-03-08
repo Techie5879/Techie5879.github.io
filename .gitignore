@@ -2,6 +2,10 @@
 /.tools/
 /sites/astro*/.astro/
 /sites/astro*/dist/
+/sites/finalastro/node_modules/
+/sites/finalastro/dist/
+/sites/finalastro/.astro/
+
 /sites/astro*/node_modules/
 /sites/hugo/public/
 /sites/hugo/resources/_gen/

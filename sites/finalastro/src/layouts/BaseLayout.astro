@@ -1,0 +1,113 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site.js";
+
+const {
+  title = "Aritra | Astro",
+  description = "Astro preview for an academic portfolio comparison.",
+  pageTitle,
+  pageIntro
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
+function getIcon(label) {
+  const lc = label.toLowerCase();
+  if (lc === "github") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
+  if (lc === "linkedin") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`;
+  if (lc === "x" || lc === "twitter") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>`;
+  if (lc === "scholar") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>`;
+  if (lc === "email") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
+  return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="site-header">
+        <nav class="nav">
+          <a href={`${base}/`}>Home</a>
+          <a href={`${base}/publication/`}>Publications</a>
+          <a href={`${base}/experience/`}>Experience</a>
+          <a href={`${base}/blog/`}>Blog</a>
+          <a href="/media/resume.pdf">Resume</a>
+        </nav>
+      </header>
+
+      {pageTitle && (
+        <section class="panel">
+          <h1 class="page-title">{pageTitle}</h1>
+          {pageIntro && <p class="muted">{pageIntro}</p>}
+        </section>
+      )}
+
+      <slot />
+
+      <footer class="site-footer">
+        <div class="socials">
+          {site.socials.map((item) => (
+            <a class="pill" href={item.href} title={item.label} aria-label={item.label}>
+              <span set:html={getIcon(item.label)} />
+            </a>
+          ))}
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  .site-footer .socials {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+  
+  .site-footer .socials .pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+    padding: 0;
+    line-height: 0;
+  }
+  
+  .site-footer .socials .pill span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .site-footer .socials .pill svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+  
+  .site-footer .socials .pill:hover {
+    background: var(--bg-alt);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+</style>

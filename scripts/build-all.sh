@@ -72,6 +72,11 @@ npm --prefix "$ROOT_DIR/sites/astro4" run build
 mkdir -p "$DIST_DIR/astro4"
 cp -R "$ROOT_DIR/sites/astro4/dist/." "$DIST_DIR/astro4/"
 
+npm --prefix "$ROOT_DIR/sites/finalastro" install
+npm --prefix "$ROOT_DIR/sites/finalastro" run build
+mkdir -p "$DIST_DIR/finalastro"
+cp -R "$ROOT_DIR/sites/finalastro/dist/." "$DIST_DIR/finalastro/"
+
 bundle install --gemfile "$ROOT_DIR/sites/jekyll/Gemfile"
 BUNDLE_GEMFILE="$ROOT_DIR/sites/jekyll/Gemfile" bundle exec jekyll build --source "$ROOT_DIR/sites/jekyll" --destination "$DIST_DIR/jekyll" --config "$ROOT_DIR/sites/jekyll/_config.yml"
 

@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const publications = await getCollection("publications");
+  return publications.map((publication) => ({
+    params: { slug: publication.id },
+    props: { publication }
+  }));
+}
+
+const { publication } = Astro.props;
+const { Content } = await render(publication);
+
+function fmtDate(d) {
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${dd}-${mm}-${d.getFullYear()}`;
+}
+---
+
+<BaseLayout
+  title={`${publication.data.title} | Astro`}
+  pageTitle={publication.data.title}
+  pageIntro={publication.data.description}
+>
+  <article class="panel article-body">
+    {publication.data.image && <img src={publication.data.image} alt={publication.data.title} />}
+    <p class="meta">{publication.data.authors}</p>
+    <p class="meta">{publication.data.venue} | {fmtDate(publication.data.pubDate)}</p>
+    <div class="route-row">
+      <a class="button primary" href={publication.data.pdf}>PDF</a>
+      <a class="button" href={publication.data.code}>Code</a>
+    </div>
+    <Content />
+  </article>
+</BaseLayout>
