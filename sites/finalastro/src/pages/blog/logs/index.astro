@@ -5,7 +5,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const withBase = (path) => `${base}${path}`;
 const posts = (await getCollection("blog"))
-  .filter((p) => p.data.section === "non-technical")
+  .filter((p) => p.data.section === "logs")
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 function fmtDate(d) {
@@ -16,20 +16,21 @@ function fmtDate(d) {
 ---
 
 <BaseLayout
-  title="Writing | Aritra"
-  pageTitle="Writing"
-  pageIntro="Reflections on life, philosophy, and things worth thinking about."
+  title="Logs"
+  appendSiteName={false}
+  pageTitle="Logs"
+  pageIntro="Intermittent logs on machine learning, systems, and research—paper notes, experiments, and things I'm figuring out."
 >
   <section class="panel">
     <div class="article-list">
       {posts.length > 0 ? posts.map((post) => (
         <article class="article-card">
-          <h2><a href={withBase(`/blog/writing/${post.id}/`)}>{post.data.title}</a></h2>
+          <h2><a href={withBase(`/blog/logs/${post.id}/`)}>{post.data.title}</a></h2>
           <p class="meta">{fmtDate(post.data.pubDate)}</p>
           <p>{post.data.description}</p>
         </article>
       )) : (
-        <p class="muted">Reflections coming soon.</p>
+        <p class="muted">No posts yet.</p>
       )}
     </div>
   </section>

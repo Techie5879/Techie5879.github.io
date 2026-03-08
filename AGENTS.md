@@ -17,6 +17,8 @@ This repo is the personal GitHub Pages site for `techie5879.github.io`.
 - Keep routes and assets root-safe for GitHub Pages
 - Prefer static-output-friendly changes
 - Do not reintroduce old multi-framework preview structure unless explicitly requested
+- After site changes, rebuild the published output with `./scripts/build-all.sh`
+- Verify every user-facing change with `agent-browser` before wrapping up
 
 ## Deployment Expectations
 

@@ -363,6 +363,42 @@ a.article-card:hover, a.project-card:hover {
   font-family: var(--font-meta);
 }
 
+/* ── Code blocks ────────────────────────────────────────── */
+.article-body pre {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 2px 2px 0;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.75;
+  /* Shiki inlines background; we layer our own subtle shadow instead */
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* Shiki wraps code in <code> inside <pre>; ensure font is consistent */
+.article-body pre code {
+  font-family: var(--font-mono);
+  font-size: inherit;
+  background: transparent !important;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Inline code (not inside a pre) */
+.article-body :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.84em;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
 @media (max-width: 600px) {
   .site-header {
     flex-direction: column;

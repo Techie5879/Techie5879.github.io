@@ -2,7 +2,7 @@
 title: Come back later
 description: A placeholder for future reflections on life, philosophy, and learning.
 pubDate: 2023-10-24
-section: non-technical
+section: downtime
 categories:
   - Reflections
 ---

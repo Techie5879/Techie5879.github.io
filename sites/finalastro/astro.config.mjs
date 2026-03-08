@@ -4,6 +4,9 @@ export default defineConfig({
   site: "https://techie5879.github.io",
   output: "static",
   markdown: {
-    syntaxHighlight: "shiki"
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "github-light"
+    }
   }
 });

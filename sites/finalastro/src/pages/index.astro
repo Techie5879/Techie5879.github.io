@@ -9,14 +9,14 @@ const publications = await getCollection("publications");
 const allPosts = await getCollection("blog");
 
 const publicationMap = new Map(publications.map((item) => [item.id, item]));
-const technicalMap = new Map(
+const logsMap = new Map(
   allPosts
-    .filter((p) => p.data.section === "technical")
+    .filter((p) => p.data.section === "logs")
     .map((item) => [item.id, item])
 );
-const writingMap = new Map(
+const downtimeMap = new Map(
   allPosts
-    .filter((p) => p.data.section === "non-technical")
+    .filter((p) => p.data.section === "downtime")
     .map((item) => [item.id, item])
 );
 
@@ -84,26 +84,26 @@ function resolveHighlight(ref) {
     };
   }
 
-  if (parsed.section === "technical") {
-    const post = technicalMap.get(parsed.id);
+  if (parsed.section === "logs" || parsed.section === "technical") {
+    const post = logsMap.get(parsed.id);
     if (!post) return null;
 
     return {
-      label: "Technical",
-      href: withBase(`/blog/technical/${post.id}/`),
+      label: "Logs",
+      href: withBase(`/blog/logs/${post.id}/`),
       title: post.data.title,
       meta: getPostMeta(post),
       description: post.data.description
     };
   }
 
-  if (parsed.section === "writing") {
-    const post = writingMap.get(parsed.id);
+  if (parsed.section === "downtime" || parsed.section === "writing") {
+    const post = downtimeMap.get(parsed.id);
     if (!post) return null;
 
     return {
-      label: "Writing",
-      href: withBase(`/blog/writing/${post.id}/`),
+      label: "Downtime",
+      href: withBase(`/blog/downtime/${post.id}/`),
       title: post.data.title,
       meta: getPostMeta(post),
       description: post.data.description
@@ -118,7 +118,7 @@ const highlights = site.home.highlights
   .filter(Boolean);
 ---
 
-<BaseLayout title="Aritra | Astro" description={site.about}>
+<BaseLayout description={site.about}>
   <section class="hero">
     <img src={withBase("/media/avatar.jpg")} alt="Portrait of Aritra Bandyopadhyay" />
     <div class="hero-copy">

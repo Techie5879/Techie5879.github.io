@@ -25,8 +25,8 @@ export const site = {
     ],
     highlights: [
       "publication/conference-paper",
-      "technical/llms",
-      "writing/reflections"
+      "logs/llms",
+      "downtime/reflections"
     ]
   },
   socials: [
