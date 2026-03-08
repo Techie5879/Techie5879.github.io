@@ -3,6 +3,59 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site } from "../../data/site.js";
 
 const base = import.meta.env.BASE_URL;
+
+const monthMap = {
+  Jan: 0,
+  Feb: 1,
+  Mar: 2,
+  Apr: 3,
+  May: 4,
+  Jun: 5,
+  Jul: 6,
+  Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  Dec: 11
+};
+
+function parseMonthLabel(label) {
+  if (label === "Present") {
+    const now = new Date();
+    return { year: now.getFullYear(), month: now.getMonth() };
+  }
+
+  const [monthText, yearText] = label.trim().split(" ");
+  return { year: Number(yearText), month: monthMap[monthText] };
+}
+
+function formatDuration(period) {
+  const [startText, endText] = period.split(/\s+[–-]\s+/);
+  const start = parseMonthLabel(startText);
+  const end = parseMonthLabel(endText);
+  const totalMonths = (end.year - start.year) * 12 + (end.month - start.month) + 1;
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+  const parts = [];
+
+  if (years) parts.push(`${years} yr${years === 1 ? "" : "s"}`);
+  if (months) parts.push(`${months} mo${months === 1 ? "" : "s"}`);
+
+  return parts.join(" ") || "0 mos";
+}
+
+function getWorkMeta(item) {
+  return `${item.org} | ${item.period} | ${formatDuration(item.period)}`;
+}
+
+function getLogoClass(logo) {
+  return [
+    logo === "tum.svg" ? "logo-mono" : "",
+    logo === "aiisc-wordmark.png" ? "logo-aiisc" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
 ---
 
 <BaseLayout title="Experience">
@@ -11,19 +64,19 @@ const base = import.meta.env.BASE_URL;
       <h2>Work</h2>
       <div class="article-list">
         {site.work.map((item) => (
-          <article class="timeline-item">
+          <article id={item.id} class="timeline-item">
             {item.logo && (
               <div class="org-logo">
                 <img
                   src={`${base}/logos/${item.logo}`}
                   alt={item.org}
-                  class={item.logo.endsWith('.svg') && item.logo === 'tum.svg' ? 'logo-mono' : ''}
+                  class={getLogoClass(item.logo)}
                 />
               </div>
             )}
             <div class="timeline-content">
               <h3>{item.title}</h3>
-              <p class="meta">{item.org} | {item.period}</p>
+              <p class="meta">{getWorkMeta(item)}</p>
               <p>{item.summary}</p>
             </div>
           </article>
@@ -38,7 +91,7 @@ const base = import.meta.env.BASE_URL;
           <article class="timeline-item">
             <div class="timeline-content">
               <h3>{item.title}</h3>
-              <p class="meta">{item.org} | {item.period}</p>
+              <p class="meta">{item.org}</p>
               <p>{item.summary}</p>
             </div>
           </article>
@@ -74,14 +127,16 @@ const base = import.meta.env.BASE_URL;
     flex-direction: row;
     align-items: flex-start;
     gap: 0;
+    padding-top: 18px;
+    padding-bottom: 20px;
   }
 
   .org-logo {
     flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    margin-right: 16px;
-    margin-top: 2px;
+    width: 52px;
+    height: 52px;
+    margin-right: 18px;
+    margin-top: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,9 +160,31 @@ const base = import.meta.env.BASE_URL;
     color: var(--text-main);
   }
 
+  .org-logo img.logo-aiisc {
+    padding: 1px;
+  }
+
   .timeline-content {
     flex: 1;
     min-width: 0;
+  }
+
+  .timeline-content h3 {
+    margin-bottom: 0;
+    line-height: 1.08;
+    font-size: 1.15rem; /* reduced from global 1.3rem */
+  }
+
+  .timeline-content .meta {
+    font-size: 0.95rem; /* increased from 0.9rem */
+    line-height: 1.15;
+    margin-top: -2px;
+    margin-bottom: 10px;
+  }
+
+  /* Tighter line spacing for description text */
+  .timeline-content p:not(.meta) {
+    line-height: 1.45;
   }
 
   /* Items without logos still look clean */

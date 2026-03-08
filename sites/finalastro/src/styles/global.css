@@ -8,6 +8,7 @@
   --border: #E5E5E5;
   --font-body: "Source Serif 4", Georgia, serif;
   --font-heading: "Newsreader", "Times New Roman", serif;
+  --font-meta: "Source Serif 4", Georgia, serif;
   --font-mono: "IBM Plex Mono", monospace;
 }
 
@@ -37,9 +38,9 @@ img { max-width: 100%; display: block; }
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 
 .shell {
-  max-width: 760px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 40px 20px 0;
+  padding: 40px 24px 0;
 }
 
 /* Header */
@@ -112,7 +113,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
 
 /* Hero Section */
 .hero {
-  margin-bottom: 80px;
+  margin-bottom: 48px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -129,12 +130,14 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
   flex-shrink: 0;
 }
 
-.hero .muted {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+.muted {
+  font-family: var(--font-meta);
+  font-size: 0.98rem;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+.hero .muted {
   margin-bottom: 16px;
 }
 
@@ -152,7 +155,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
   font-size: 1.1rem;
   color: var(--text-main);
   margin-bottom: 24px;
-  max-width: 680px;
+  max-width: 760px;
 }
 
 .hero p:nth-of-type(1) { /* Assuming this is the role/institution */
@@ -320,18 +323,22 @@ a.article-card:hover, a.project-card:hover {
   margin-bottom: 0;
 }
 
+.article-card h2 a, .project-card h2 a, .timeline-item h2 a,
 .article-card h3 a, .project-card h3 a, .timeline-item h3 a {
   color: var(--text-main);
   border-bottom: none;
 }
+.article-card h2 a:hover, .project-card h2 a:hover, .timeline-item h2 a:hover,
 .article-card h3 a:hover, .project-card h3 a:hover, .timeline-item h3 a:hover {
   color: var(--accent);
+  border-bottom: none;
 }
 
 .meta {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-family: var(--font-meta);
+  font-size: 0.95rem;
   color: var(--text-muted);
+  line-height: 1.5;
   margin-bottom: 12px;
 }
 
@@ -353,7 +360,7 @@ a.article-card:hover, a.project-card:hover {
 .site-footer .meta {
   margin-top: 4px;
   font-size: 0.8rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-meta);
 }
 
 @media (max-width: 600px) {

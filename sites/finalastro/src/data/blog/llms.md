@@ -18,8 +18,6 @@ Because the comparison is not only visual. Each framework preview needs to prove
 
 ![LLM notes preview](/media/blog-llms.jpg)
 
-<audio controls src="/media/ambient-piano.mp3"></audio>
-
 ## A tiny code note
 
 ```python

@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection("blog"))
+  .filter((p) => p.data.section === "non-technical")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function fmtDate(d) {
+  const dd = String(d.getDate()).padStart(2, "0");
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  return `${dd}-${mm}-${d.getFullYear()}`;
+}
+---
+
+<BaseLayout
+  title="Writing | Aritra"
+  pageTitle="Writing"
+  pageIntro="Reflections on life, philosophy, and things worth thinking about."
+>
+  <section class="panel">
+    <div class="article-list">
+      {posts.length > 0 ? posts.map((post) => (
+        <article class="article-card">
+          <h2><a href={`${base}/blog/writing/${post.id}/`}>{post.data.title}</a></h2>
+          <p class="meta">{fmtDate(post.data.pubDate)}</p>
+          <p>{post.data.description}</p>
+        </article>
+      )) : (
+        <p class="muted">Reflections coming soon.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
