@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&amp;display=swap');</style></defs>
+  <rect width="512" height="512" fill="#1A1A1A" rx="128"/>
+  
+  <line x1="80" y1="60" x2="80" y2="452" stroke="#FAF9F6" stroke-width="32" stroke-linecap="round"/>
+  
+  <path d="M 80 420 C 290 420 290 420 290 380" fill="none" stroke="#FAF9F6" stroke-width="24" stroke-linecap="round"/>
+  <path d="M 290 130 C 290 90 290 90 110 90" fill="none" stroke="#FAF9F6" stroke-width="24" stroke-linecap="round"/>
+  
+  <rect x="140" y="130" width="300" height="252" fill="#8B2635" rx="32"/>
+  <text x="290" y="266" font-family="'IBM Plex Mono', monospace" font-size="180" font-weight="600" fill="#FAF9F6" text-anchor="middle" dominant-baseline="middle">A</text>
+  
+  <polygon points="290,360 270,390 310,390" fill="#FAF9F6"/>
+  <polygon points="85,90 115,70 115,110" fill="#FAF9F6"/>
+</svg>
