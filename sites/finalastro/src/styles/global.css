@@ -12,6 +12,52 @@
   --font-mono: "IBM Plex Mono", monospace;
 }
 
+[data-theme="dark"] {
+  --bg: #141312;
+  --bg-alt: #1E1C1A;
+  --text-main: #E8E6E1;
+  --text-muted: #9C9791;
+  --accent: #D95C6C;
+  --accent-hover: #E67A88;
+  --border: #2D2A28;
+}
+
+/* ── View Transitions: sweep reveal with gradient edge ─────── */
+
+/* Houdini registered property — makes the gradient radius animatable */
+@property --sweep-r {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@keyframes sweep-in {
+  from { --sweep-r: 0%; }
+  to   { --sweep-r: 220%; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: fade-out 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-new(root) {
+    /* Gradient zone: hard black core → feathered 35% edge → transparent */
+    mask-image: radial-gradient(
+      circle at var(--vt-x, 50%) var(--vt-y, 0%),
+      black calc(var(--sweep-r) - 35%),
+      transparent var(--sweep-r)
+    );
+    animation: sweep-in 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    mix-blend-mode: normal;
+  }
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 18px; }
 body {
