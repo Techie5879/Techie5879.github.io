@@ -2,6 +2,7 @@
   "name": "techie5879-astro-preview",
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.3.10",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

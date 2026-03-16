@@ -1,21 +1,8 @@
 /dist/
 /.tools/
-/sites/astro*/.astro/
-/sites/astro*/dist/
-/sites/finalastro/node_modules/
-/sites/finalastro/dist/
-/sites/finalastro/.astro/
+/src/node_modules/
+/src/dist/
+/src/.astro/
 
-/sites/astro*/node_modules/
-/sites/hugo/public/
-/sites/hugo/resources/_gen/
-/sites/jekyll*/.bundle/
-/sites/jekyll*/_site/
-/sites/jekyll*/.jekyll-cache/
-/sites/jekyll*/vendor/
-/sites/quarto*/.quarto/
-/sites/quarto*/_site/
-.hugo_build.lock
 .cursorignore
-hugo_stats.json
 go.sum

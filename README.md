@@ -3,21 +3,21 @@
 Source for the personal site at `techie5879.github.io`.
 
 - Framework: Astro
-- Source code: `sites/finalastro`
+- Source code: `src`
 - Production build output: `dist`
 - Deploy target: GitHub Pages at the root domain
 
 Key paths:
 
-- Site data: `sites/finalastro/src/data`
-- Pages: `sites/finalastro/src/pages`
-- Layouts/styles: `sites/finalastro/src/layouts`, `sites/finalastro/src/styles`
-- Public assets: `sites/finalastro/public`
+- Site data: `src/src/data`
+- Pages: `src/src/pages`
+- Layouts/styles: `src/src/layouts`, `src/src/styles`
+- Public assets: `src/public`
 
 Local build:
 
 ```bash
-./scripts/build-all.sh
+./scripts/build.sh
 ```
 
 Local preview from the built output:
