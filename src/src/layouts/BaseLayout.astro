@@ -32,6 +32,13 @@ function getIcon(label) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
+    {import.meta.env.PROD && (
+      <script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="a971ad06-2d27-4efc-a405-ef890e415772"
+      ></script>
+    )}
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
