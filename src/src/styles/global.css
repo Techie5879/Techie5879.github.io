@@ -468,8 +468,17 @@ a.article-card:hover, a.project-card:hover {
 
 @media (max-width: 600px) {
   .site-header {
-    flex-direction: column;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .nav {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    row-gap: 6px;
+  }
+  #theme-toggle {
+    margin-top: 0;
   }
   .hero {
     flex-direction: column;
