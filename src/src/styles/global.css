@@ -133,6 +133,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
   padding: 4px 8px;
   border-radius: 4px;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 .nav a::before {
   content: "[";
