@@ -22,28 +22,14 @@ consistently slow down enough to notice things: the way light hits a building at
 different cities sound at night, what people eat for breakfast when nobody is performing culture
 for tourists.
 
-<Callout type="note">
-  This is a demo of an MDX component. In a regular `.md` file, you cannot embed Astro (or React,
-  or any) components. In `.mdx`, you import them and use them inline like this. The `Callout`
-  component lives in `src/components/Callout.astro` and accepts a `type` prop.
-</Callout>
-
 ## A short list of things I remember
 
 Not places. Moments.
 
-- The mass of pigeons lifting off the steps of Jama Masjid at dusk, a sound like a curtain being shaken out
-- Drinking absurdly sweet chai from a clay cup on a platform in Varanasi at 5 AM, cold enough to see your breath
-- A completely silent courtyard inside the Alhambra where every surface was doing math
+- The mass of pigeons lifting off the steps of Jama Masjid at dusk
+- Drinking absurdly sweet chai from a clay cup on a platform in Varanasi at 5 AM
+- A completely silent courtyard inside the Alhambra
 - The Tokyo subway at rush hour, where millions of people somehow never touch each other
-
-## What MDX lets you do here
-
-Everything below is normal markdown -- headings, lists, code blocks, images, links. All of that
-works in `.md` too. The difference is that `.mdx` also lets you drop in components anywhere in
-the prose. A few things that become possible:
-
-### Styled callouts with different types
 
 <Callout type="tip">
   Pack a notebook. Phone notes are fine but something about writing by hand on a train makes the
@@ -54,21 +40,3 @@ the prose. A few things that become possible:
 <Callout type="warning">
   Do not check email on the first morning of a trip. The whole day changes if you do.
 </Callout>
-
-### Code blocks still work normally
-
-```python
-places = ["konkan", "granada", "tokyo", "varanasi"]
-for p in places:
-    print(f"remember {p}")
-```
-
-### And so does regular prose
-
-The real point of `.mdx` is not that you need components in every post. Most posts will be plain
-prose and that is fine. The point is that when you want something richer -- a custom aside, an
-interactive chart, a styled quote card, an embedded map -- you can reach for a component without
-leaving the writing flow. You import it at the top of the file and use it like an HTML tag.
-
-For posts that are just text, `.md` is simpler and there is no reason to change. Use `.mdx` when
-plain markdown is not enough.

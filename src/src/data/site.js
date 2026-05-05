@@ -30,6 +30,22 @@ export const site = {
     ],
     repos: [
       {
+        name: "opencode-smart-session-picker",
+        description: "OpenCode TUI plugin replacing the built-in session picker with hybrid SQLite + fzf search over titles, paths, and transcripts.",
+        href: "https://github.com/Techie5879/opencode-smart-session-picker",
+        lang: "TypeScript",
+        langColor: "#3178C6",
+        tags: ["OpenCode Plugin", "SQLite FTS", "fzf", "Bun"]
+      },
+      {
+        name: "linkswitch",
+        description: "Native macOS menu bar URL handler that routes links to the right browser and profile based on which app opened them. Keeps work/personal browsing cleanly separated.",
+        href: "https://github.com/Techie5879/linkswitch",
+        lang: "Swift",
+        langColor: "#F05138",
+        tags: ["macOS", "AppKit", "Menu Bar"]
+      },
+      {
         name: "tabrewind",
         description: "Local-first browser history search with hybrid BM25 + vector retrieval. Privacy-first, no cloud dependencies.",
         href: "https://github.com/Techie5879/tabrewind",
@@ -44,14 +60,6 @@ export const site = {
         lang: "TypeScript",
         langColor: "#3178C6",
         tags: ["MLX", "Chrome Extension", "FastAPI"]
-      },
-      {
-        name: "mech-interp",
-        description: "Experiments in mechanistic interpretability — circuits, probes, and feature analysis with TransformerLens.",
-        href: "https://github.com/Techie5879/mech-interp",
-        lang: "Jupyter Notebook",
-        langColor: "#DA5B0B",
-        tags: ["TransformerLens", "SPAR", "PyTorch"]
       }
     ]
   },
