@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostList from "../../../components/PostList.astro";
+import { site } from "../../../data/site.js";
+import { byDateDesc } from "../../../lib/utils.js";
+
+const { title, blurb } = site.sections.inferences;
+
+const posts = (await getCollection("blog"))
+  .filter((p) => p.data.section === "inferences")
+  .sort(byDateDesc);
+---
+
+<BaseLayout title={title} pageTitle={title} pageIntro={blurb}>
+  <PostList posts={posts} prefix="/blog/" />
+</BaseLayout>

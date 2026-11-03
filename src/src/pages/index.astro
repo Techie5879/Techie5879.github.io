@@ -1,349 +1,45 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import RepoCard from "../components/RepoCard.astro";
 import { site } from "../data/site.js";
+import PostList from "../components/PostList.astro";
+import { withBase, byDateDesc } from "../lib/utils.js";
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const withBase = (path) => `${base}${path}`;
-const publications = await getCollection("publications");
-const allPosts = await getCollection("blog");
+const posts = (await getCollection("blog")).sort(byDateDesc);
+const inferences = posts.filter((p) => p.data.section === "inferences").slice(0, 6);
+const downtime = posts.filter((p) => p.data.section === "downtime").slice(0, 6);
 
-const publicationMap = new Map(publications.map((item) => [item.id, item]));
-const logsMap = new Map(
-  allPosts
-    .filter((p) => p.data.section === "logs")
-    .map((item) => [item.id, item])
-);
-const downtimeMap = new Map(
-  allPosts
-    .filter((p) => p.data.section === "downtime")
-    .map((item) => [item.id, item])
-);
-
-function fmtDate(d) {
-  const dd = String(d.getDate()).padStart(2, '0');
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  return `${dd}-${mm}-${d.getFullYear()}`;
-}
-
-function getIcon(label) {
-  const lc = label.toLowerCase();
-  if (lc === "github") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
-  if (lc === "linkedin") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`;
-  if (lc === "x" || lc === "twitter") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>`;
-  if (lc === "scholar") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>`;
-  if (lc === "email") return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
-  return `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`;
-}
-
-function normalizeHighlightRef(ref) {
-  const parts = ref.split("/").filter(Boolean);
-
-  if (parts.length < 2) return null;
-
-  if (parts[0] === "blog" && parts.length >= 3) {
-    return {
-      section: parts[1],
-      id: parts.slice(2).join("/")
-    };
-  }
-
-  if (parts[0] === "publications") {
-    return {
-      section: "publication",
-      id: parts.slice(1).join("/")
-    };
-  }
-
-  return {
-    section: parts[0],
-    id: parts.slice(1).join("/")
-  };
-}
-
-function getPostMeta(post) {
-  const categories = post.data.categories?.slice(0, 2).join(" / ");
-  return categories ? `${categories} | ${fmtDate(post.data.pubDate)}` : fmtDate(post.data.pubDate);
-}
-
-function resolveHighlight(ref) {
-  const parsed = normalizeHighlightRef(ref);
-
-  if (!parsed) return null;
-
-  if (parsed.section === "publication") {
-    const publication = publicationMap.get(parsed.id);
-    if (!publication) return null;
-
-    return {
-      label: "Publication",
-      href: withBase(`/publication/${publication.id}/`),
-      title: publication.data.title,
-      meta: `${publication.data.venue} | ${fmtDate(publication.data.pubDate)}`,
-      description: publication.data.description
-    };
-  }
-
-  if (parsed.section === "logs" || parsed.section === "technical") {
-    const post = logsMap.get(parsed.id);
-    if (!post) return null;
-
-    return {
-      label: "Logs",
-      href: withBase(`/blog/logs/${post.id}/`),
-      title: post.data.title,
-      meta: getPostMeta(post),
-      description: post.data.description
-    };
-  }
-
-  if (parsed.section === "downtime" || parsed.section === "writing") {
-    const post = downtimeMap.get(parsed.id);
-    if (!post) return null;
-
-    return {
-      label: "Downtime",
-      href: withBase(`/blog/downtime/${post.id}/`),
-      title: post.data.title,
-      meta: getPostMeta(post),
-      description: post.data.description
-    };
-  }
-
-  return null;
-}
-
-const highlights = site.home.highlights
-  .map((item) => resolveHighlight(item))
-  .filter(Boolean);
+const sections = [
+  { key: "inferences", posts: inferences, ...site.sections.inferences },
+  { key: "downtime", posts: downtime, ...site.sections.downtime }
+];
 ---
 
 <BaseLayout description={site.about}>
-  <section class="hero">
-    <img src={withBase("/media/avatar.jpg")} alt="Portrait of Aritra Bandyopadhyay" />
-    <div class="hero-copy">
-      <h1>{site.name}</h1>
-      <p>{site.role}</p>
-      <p set:html={site.about} />
-      
-      <div class="socials">
-        {site.socials.map((item) => (
-          <a class="pill" href={item.href} title={item.label} aria-label={item.label}>
-            <span set:html={getIcon(item.label)} />
-          </a>
-        ))}
-      </div>
-    </div>
+  <section class="section intro">
+    <h1>{site.name}</h1>
+    <p set:html={site.about} />
+    <p class="mono muted">
+      now: {site.now.role} @ {site.now.org}<br />
+      before: {site.before}
+    </p>
   </section>
 
-  <section class="profile-meta">
-    <div class="meta-row">
-      <span class="meta-label">skills</span>
-      <div class="meta-chips">
-        {site.home.skills.map((s) => (
-          <span class="meta-chip">{s}</span>
-        ))}
-      </div>
-    </div>
-    <div class="meta-row">
-      <span class="meta-label">interests</span>
-      <div class="meta-chips">
-        {site.home.interests.map((i) => (
-          <span class="meta-chip">{i}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="panel highlights-panel">
-    <h2>Highlights</h2>
-
-    <div class="repos-subsection">
-      <p class="subsection-label">repos</p>
-      <div class="repos-grid">
-        {site.home.repos.map((repo) => (
-          <RepoCard
-            name={repo.name}
-            description={repo.description}
-            href={repo.href}
-            lang={repo.lang}
-            langColor={repo.langColor}
-            tags={repo.tags}
-          />
-        ))}
-      </div>
-    </div>
-
-    <div class="grid highlights-grid">
-      <p class="highlights-list-label">recent</p>
-      {highlights.map((item) => (
-        <article class="article-card highlight-item">
-          <p class="highlight-label">{item.label}</p>
-          <h3><a href={item.href}>{item.title}</a></h3>
-          <p class="meta">{item.meta}</p>
-          <p>{item.description}</p>
-        </article>
-      ))}
-      {highlights.length === 0 && (
-        <p class="muted">Add refs to `site.home.highlights` to populate this section.</p>
-      )}
-    </div>
-  </section>
-
+  {sections.map(({ key, posts, blurb }) => (
+    <section class="section">
+      <a class="label" href={withBase(`/blog/${key}/`)}>{key}</a>
+      <p class="muted blurb">{blurb}</p>
+      <PostList posts={posts} prefix="/blog/" empty="Nothing yet." />
+    </section>
+  ))}
 </BaseLayout>
 
 <style>
-  .socials .pill {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    transition: all 0.2s ease;
-    padding: 0;
-    line-height: 0;
-  }
-  
-  .socials .pill span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .socials .pill svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-  }
-  
-  .socials .pill:hover {
-    background: var(--bg-alt);
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-2px);
-  }
+  .intro h1 { font-size: 1.6rem; margin-bottom: 0.9rem; }
+  .intro p { max-width: 36rem; }
+  .intro .mono { margin-top: 1.25rem; line-height: 1.8; }
 
-  .intro-notes {
-    display: none; /* replaced */
-  }
-
-  .profile-meta {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 36px;
-  }
-
-  .meta-row {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 0 32px;
-    align-items: baseline;
-    padding: 14px 0;
-  }
-
-  .meta-row + .meta-row {
-    border-top: 1px solid var(--border);
-  }
-
-  .meta-label {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.07em;
-    text-transform: lowercase;
-    color: var(--text-muted);
-    padding-top: 2px;
-  }
-
-  .meta-chips {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    row-gap: 4px;
-  }
-
-  .meta-chip {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--text-main);
-    white-space: nowrap;
-  }
-
-  .meta-chip:not(:last-child)::after {
-    content: "·";
-    color: var(--text-muted);
-    margin: 0 10px;
-    font-size: 0.9rem;
-  }
-
-  .highlight-label {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
-    color: var(--text-muted);
-    margin: 0 0 12px 0;
-  }
-
-  .highlights-panel {
-    margin-bottom: 32px;
-  }
-
-  .highlight-item {
-    padding-top: 18px;
-    padding-bottom: 18px;
-  }
-
-  .highlight-item h3 {
-    margin-bottom: 10px;
-  }
-
-  .highlight-item .meta {
-    margin-bottom: 10px;
-  }
-
-  /* ── Repos subsection ── */
-  .repos-subsection {
-    margin-top: 20px;
-    margin-bottom: 32px;
-  }
-
-  .subsection-label {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.07em;
-    text-transform: lowercase;
-    color: var(--text-muted);
-    margin: 0 0 14px 0;
-  }
-
-  .repos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  /* ── Highlights list sub-label ── */
-  .highlights-list-label {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.07em;
-    text-transform: lowercase;
-    color: var(--text-muted);
-    margin: 0 0 4px 0;
-  }
-
-  @media (max-width: 700px) {
-    .meta-row {
-      grid-template-columns: 1fr;
-      gap: 8px;
-      padding: 12px 0;
-    }
-
-    .repos-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+  .section .label { margin-bottom: 0.35rem; text-decoration: none; }
+  .section .label:hover { color: var(--text-main); }
+  .blurb { font-size: 0.92rem; margin: 0 0 1rem; }
 </style>

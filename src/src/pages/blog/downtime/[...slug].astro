@@ -1,35 +1,19 @@
 ---
 import { getCollection, render } from "astro:content";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts
     .filter((p) => p.data.section === "downtime")
-    .map((post) => ({
-      params: { slug: post.id },
-      props: { post }
-    }));
+    .map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-
-function fmtDate(d) {
-  const dd = String(d.getDate()).padStart(2, "0");
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  return `${dd}-${mm}-${d.getFullYear()}`;
-}
+const d = post.data;
 ---
 
-<BaseLayout
-  title={post.data.title}
-  appendSiteName={false}
-  pageTitle={post.data.title}
-  pageIntro={post.data.description}
->
-  <article class="panel article-body">
-    <p class="meta">{fmtDate(post.data.pubDate)}</p>
-    <Content />
-  </article>
-</BaseLayout>
+<ArticleLayout title={d.title} description={d.description} pubDate={d.pubDate} meta={d.categories.join(", ").toLowerCase()}>
+  <Content />
+</ArticleLayout>

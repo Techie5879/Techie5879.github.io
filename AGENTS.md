@@ -38,6 +38,10 @@ The design tokens live in `src/styles/global.css`. These are the available token
 | `--border` | Dividers, card borders, separators |
 | `--font-body` / `--font-heading` / `--font-meta` / `--font-mono` | Typography |
 
+### Design direction
+
+The site is deliberately sparse: one column at `--measure` width, mono (`--font-mono`) for dates, labels, and navigation, serif for prose. Lists are ledgers (`.ledger`: date column + content), not cards. No avatars, chips, badges, hover transforms, or page transitions. Add decoration only if it carries information.
+
 ### Rules
 
 1. **Never use inline `style` attributes with hardcoded hex/rgb values.** Use a `<style>` block with `var(--token)` references instead. Inline styles bypass theme switching entirely.
@@ -71,7 +75,7 @@ const { /* destructure */ } = Astro.props;
 </style>
 ```
 
-Reference: `src/components/RepoCard.astro` (good example using tokens throughout) and `src/components/Callout.astro` (scoped styles with semantic accent colors).
+Reference: `src/components/PostList.astro` (ledger rows built on the shared `.ledger` classes) and `src/components/Callout.astro` (scoped styles with semantic accent colors).
 
 ## Deployment Expectations
 

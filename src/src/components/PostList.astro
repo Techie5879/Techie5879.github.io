@@ -1,0 +1,26 @@
+---
+import { fmtDate, withBase } from "../lib/utils.js";
+
+interface Props {
+  posts: { id: string; data: { title: string; pubDate: Date; section?: string } }[];
+  prefix: string;
+  empty?: string;
+}
+
+const { posts, prefix, empty = "Nothing here yet." } = Astro.props;
+---
+
+{posts.length > 0 ? (
+  <ul class="ledger">
+    {posts.map((post) => (
+      <li>
+        <time datetime={post.data.pubDate.toISOString()}>{fmtDate(post.data.pubDate)}</time>
+        <span class="what">
+          <a href={withBase(`${prefix}${post.data.section ?? ""}/${post.id}/`)}>{post.data.title}</a>
+        </span>
+      </li>
+    ))}
+  </ul>
+) : (
+  <p class="muted">{empty}</p>
+)}

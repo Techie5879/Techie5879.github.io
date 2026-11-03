@@ -1,0 +1,13 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { fmtDate } from "../lib/utils.js";
+
+const { title, description, pubDate, meta } = Astro.props;
+const pageMeta = [fmtDate(pubDate), meta].filter(Boolean).join("  ·  ");
+---
+
+<BaseLayout title={title} description={description} pageTitle={title} pageIntro={description} pageMeta={pageMeta}>
+  <article class="article-body">
+    <slot />
+  </article>
+</BaseLayout>

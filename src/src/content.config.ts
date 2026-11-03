@@ -6,26 +6,13 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/blog" }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     pubDate: z.coerce.date(),
     categories: z.array(z.string()).default([]),
     image: z.string().optional(),
-    section: z.enum(["logs", "downtime"]).default("logs")
+    section: z.enum(["inferences", "downtime"]).default("inferences")
   })
 });
 
-const publications = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/data/publications" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.coerce.date(),
-    venue: z.string(),
-    authors: z.string(),
-    image: z.string().optional(),
-    pdf: z.string().url(),
-    code: z.string().url()
-  })
-});
 
-export const collections = { blog, publications };
+export const collections = { blog };
